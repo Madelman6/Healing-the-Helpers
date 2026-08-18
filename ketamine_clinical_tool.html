@@ -2,44 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
 <title>Ketamine Clinical Tool — Healing the Helpers</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:#faf9f7;font-family:'Montserrat',sans-serif;padding:20px 12px}
+body{font-family:'Montserrat',sans-serif;background:#faf9f7;padding:20px 12px}
 .wrap{max-width:640px;margin:0 auto}
-.card{background:white;border-radius:14px;padding:18px 16px;margin-bottom:12px;border:2px solid #e8e5e0}
-.btn{border:none;cursor:pointer;font-family:inherit;font-weight:700}
-input[type=number]{-moz-appearance:textfield}
-input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
-.sort-btn{padding:7px 12px;border-radius:16px;border:1px solid #ddd;background:white;color:#666;font-size:14px;cursor:pointer;font-family:inherit;font-weight:600}
-.sort-btn.active{background:#434343;color:white}
-.route-header{padding:13px 14px;cursor:pointer;display:flex;align-items:center;gap:12px;background:white}
-.route-header:hover{background:#fafaf9}
-.tap-strip{border-top:1px solid #ede9e3;padding:10px 16px;background:#f7f5f2;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
-.dot{width:10px;height:10px;border-radius:3px;display:inline-block}
-.dots{display:flex;gap:3px}
-.check-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;cursor:pointer;border:2px solid #e8e5e0;background:#fafaf9;margin-bottom:8px;transition:all 0.15s}
-.checkbox{width:24px;height:24px;border-radius:6px;flex-shrink:0;border:2px solid #ccc;background:white;display:flex;align-items:center;justify-content:center}
-.adv-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;padding:8px 12px;background:#eef5ee;border-radius:8px}
-.lim-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;padding:8px 12px;background:#fdf0f0;border-radius:8px}
-.dir-row{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px}
+.card{background:white;border-radius:14px;border:2px solid #e8e5e0;padding:18px 16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.05)}
+.route-card{background:white;border-radius:12px;border:2px solid #e8e5e0;margin-bottom:10px;overflow:hidden;transition:all 0.2s}
+.route-header{display:flex;align-items:flex-start;cursor:pointer}
+.abbr-box{width:54px;min-width:54px;display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;padding:14px 0;align-self:stretch}
+.route-info{flex:1;min-width:0;padding:10px 12px}
+.route-name{font-weight:700;color:#434343;font-size:18px;margin-bottom:4px}
+.route-stat{color:#888;font-size:16px;margin-bottom:3px}
+.route-stat b{color:#555}
+.tap-strip{border-top:1px solid #ede9e3;padding:10px 16px;background:#f7f5f2;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;color:#999;font-weight:700}
+.expand-body{padding:16px;background:#fefefe}
+.select-btn{width:100%;padding:10px 16px;border-radius:9px;font-weight:700;font-size:16px;cursor:pointer;font-family:inherit;margin-bottom:14px;transition:all 0.15s}
+.adv-label{font-size:14px;font-weight:700;letter-spacing:1px;margin-bottom:10px}
+.adv-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px;padding:8px 12px;border-radius:8px}
+.directions-box{background:#f8f6f2;border-radius:10px;padding:14px;margin-bottom:12px}
+.dir-item{display:flex;gap:10px;align-items:flex-start;margin-bottom:9px}
 .dir-num{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700;flex-shrink:0}
 .safety-box{padding:11px 14px;border-radius:0 8px 8px 0;margin-bottom:8px}
-.caveat-box{padding:12px 14px;border-radius:0 8px 8px 0;margin-bottom:10px}
+.sort-btn{padding:7px 12px;border-radius:16px;border:1px solid #ddd;background:white;color:#666;font-size:14px;cursor:pointer;font-family:inherit;font-weight:600}
+.sort-btn.active{background:#434343;color:white}
+.param-item{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;cursor:pointer;margin-bottom:8px;transition:all 0.15s}
+.param-check{width:24px;height:24px;border-radius:6px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.15s}
 .math-chip{text-align:center;padding:6px 12px;border-radius:8px}
+.result-box{background:#fdf8ed;border-radius:12px;padding:18px 16px;border:2px solid #F1DCAC;box-shadow:0 4px 16px rgba(241,220,172,0.25);margin-top:8px;display:none}
+.result-inner{text-align:center;padding:18px 16px;background:white;border-radius:10px;border:1px solid #F1DCAC}
+.caveat-box{border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appearance:none}
+input[type=number]{-moz-appearance:textfield}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<!-- HEADER -->
+<!-- Header -->
 <div style="text-align:center;margin-bottom:22px">
-  <div style="font-size:14px;letter-spacing:3px;color:#999;margin-bottom:6px;font-weight:600">HEALING THE HELPERS</div>
+  <div style="font-size:14px;letter-spacing:3px;color:#999;font-weight:600;margin-bottom:6px">HEALING THE HELPERS</div>
   <div style="font-size:26px;font-weight:800;color:#434343;line-height:1.2">Ketamine Clinical Tool</div>
   <div style="width:48px;height:3px;background:#F1DCAC;margin:10px auto 12px"></div>
-  <div style="color:#888;font-size:17px;max-width:480px;margin:0 auto;line-height:1.6">Step 1: Choose the right route. Step 2: Calculate the starting dose.</div>
+  <div style="color:#888;font-size:16px;line-height:1.6">Step 1: Choose the right route. Step 2: Calculate the starting dose.</div>
 </div>
 
 <!-- STEP 1 -->
@@ -47,70 +54,68 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appear
   <div style="font-size:19px;font-weight:800;color:#434343;margin-bottom:12px">
     <span style="background:#F1DCAC;color:#434343;font-size:14px;font-weight:800;padding:3px 10px;border-radius:10px;margin-right:8px">STEP 1</span>Select Route
   </div>
-  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px" id="sort-buttons">
-    <button class="sort-btn active" onclick="setSort('order')">Default</button>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px" id="sort-btns">
+    <button class="sort-btn active" onclick="setSort('default')">Default</button>
     <button class="sort-btn" onclick="setSort('bladder')">Bladder Safety</button>
     <button class="sort-btn" onclick="setSort('liver')">Liver Safety</button>
     <button class="sort-btn" onclick="setSort('bio')">Bioavailability</button>
     <button class="sort-btn" onclick="setSort('duration')">Duration</button>
   </div>
-  <div style="text-align:center;margin-bottom:10px;padding:8px 14px;background:#f5f3ef;border-radius:8px;font-size:16px;color:#888;font-weight:600">
-    Cards are expandable — tap a card to see full details, directions, and safety notes
+  <div style="text-align:center;margin-bottom:10px;padding:8px 14px;background:#f5f3ef;border-radius:8px">
+    <span style="font-size:16px;color:#888;font-weight:600">Cards are expandable — tap a card to see full details, directions, and safety notes</span>
   </div>
-  <div id="routes-grid"></div>
+  <div id="routes-container"></div>
 </div>
 
-<!-- WARNING -->
+<!-- Warning -->
 <div style="background:#fff8f0;border:2px solid #d4804a;border-radius:12px;padding:14px;margin-bottom:12px">
   <div style="font-weight:700;color:#d4804a;margin-bottom:5px;font-size:17px">⚠️ Important: Do Not Swallow</div>
-  <p style="font-size:16px;color:#666;line-height:1.6">When using sublingual troches or rapid dissolve tablets, swallowing the accumulated saliva is not acceptable. Many clients are simply never told this. Swallowing produces 16–30x higher urinary metabolite concentrations and significantly increases bladder and bile duct exposure. Every client must be explicitly instructed: <strong>spit the saliva throughout — do not swallow it.</strong></p>
+  <p style="margin:0;font-size:16px;color:#666;line-height:1.6">When using sublingual troches or rapid dissolve tablets, swallowing the accumulated saliva is not acceptable. Many clients are simply never told this. Swallowing produces 16–30x higher urinary metabolite concentrations and significantly increases bladder and bile duct exposure. Every client must be explicitly instructed: <strong>spit the saliva throughout — do not swallow it.</strong></p>
 </div>
 
 <!-- STEP 2 -->
 <div class="card" id="step2-card">
-  <div style="font-size:19px;font-weight:800;color:#434343;margin-bottom:16px">
+  <div style="font-size:19px;font-weight:800;color:#434343;margin-bottom:8px">
     <span style="background:#F1DCAC;color:#434343;font-size:14px;font-weight:800;padding:3px 10px;border-radius:10px;margin-right:8px">STEP 2</span>Calculate Starting Dose
   </div>
-  <div id="route-banner"><div style="background:#f5f3ef;border:2px dashed #ddd;border-radius:10px;padding:10px 14px;margin-bottom:16px;text-align:center;color:#aaa;font-size:16px">No route selected — expand a card above and tap "Use this route"</div></div>
+  <div style="background:#f5f3ef;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:16px;color:#777;line-height:1.6;font-style:italic">
+    The parameters below are a starting guide only. If in doubt, begin at 0.5 mg/kg or lower — you can always go up from there.
+  </div>
+  <div id="route-banner"></div>
 
   <!-- Weight -->
   <div style="margin-bottom:18px">
     <div style="font-size:14px;font-weight:700;color:#999;letter-spacing:1px;margin-bottom:10px">CLIENT WEIGHT</div>
     <div style="display:flex;gap:0;margin-bottom:12px;width:fit-content;border:1px solid #ddd;border-radius:9px;overflow:hidden">
-      <button id="btn-lbs" class="btn" onclick="setUnit('lbs')" style="padding:9px 22px;background:#434343;color:white;font-size:17px">lbs</button>
-      <button id="btn-kg" class="btn" onclick="setUnit('kg')" style="padding:9px 22px;background:white;color:#666;font-size:17px">kg</button>
+      <button id="btn-lbs" onclick="setUnit('lbs')" style="padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:#434343;color:white">lbs</button>
+      <button id="btn-kg" onclick="setUnit('kg')" style="padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:white;color:#666">kg</button>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <input type="number" id="weight-input" placeholder="e.g. 150" oninput="calc()"
-        style="width:110px;padding:12px 14px;border-radius:9px;border:2px solid #e0dbd4;font-size:22px;font-family:inherit;color:#434343;outline:none"
-        onfocus="this.style.borderColor='#F1DCAC'" onblur="this.style.borderColor='#e0dbd4'">
+      <input type="number" id="weight-input" oninput="calc()" placeholder="e.g. 150" style="width:110px;padding:12px 14px;border-radius:9px;border:2px solid #e0dbd4;font-size:22px;font-family:inherit;color:#434343;outline:none" onfocus="this.style.borderColor='#F1DCAC'" onblur="this.style.borderColor='#e0dbd4'">
       <span id="unit-label" style="color:#888;font-size:17px;font-weight:600">lbs</span>
       <span id="kg-equiv" style="color:#aaa;font-size:16px"></span>
     </div>
   </div>
 
-  <!-- Up params -->
+  <!-- Parameters -->
   <div style="font-size:14px;font-weight:700;color:#4a7c4e;letter-spacing:1px;margin-bottom:10px">▲ INCREASE DOSE +0.25 mg/kg each</div>
   <div id="params-up"></div>
   <div style="font-size:14px;font-weight:700;color:#c05050;letter-spacing:1px;margin-bottom:10px;margin-top:6px">▼ DECREASE DOSE −0.25 mg/kg each</div>
   <div id="params-down"></div>
 
   <!-- Result -->
-  <div id="result" style="display:none;background:#fdf8ed;border-radius:12px;padding:18px 16px;border:2px solid #F1DCAC;box-shadow:0 4px 16px rgba(241,220,172,0.25);margin-top:8px">
+  <div class="result-box" id="result">
     <div id="math-row" style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap"></div>
-    <div style="text-align:center;padding:18px 16px;background:white;border-radius:10px;border:1px solid #F1DCAC">
-      <div id="result-label" style="font-size:14px;color:#c4a832;font-weight:700;letter-spacing:1px;margin-bottom:6px">EFFECTIVE SYSTEMIC DOSE</div>
+    <div class="result-inner">
+      <div id="result-label" style="font-size:14px;color:#c4a832;font-weight:700;letter-spacing:1px;margin-bottom:6px"></div>
       <div id="result-mg" style="font-size:52px;font-weight:900;color:#434343;line-height:1"></div>
-      <div id="result-bio" style="margin-top:8px;padding:8px 12px;background:#f5f3ef;border-radius:8px;display:none">
-        <span id="result-bio-text" style="font-size:16px;color:#666"></span>
-      </div>
       <div id="result-math" style="color:#aaa;font-size:16px;margin-top:8px"></div>
       <div id="result-range" style="color:#888;font-size:16px;margin-top:6px;font-style:italic"></div>
     </div>
   </div>
 </div>
 
-<!-- CAVEATS -->
+<!-- Caveats -->
 <div class="card">
   <div style="font-size:14px;font-weight:700;color:#999;letter-spacing:1px;margin-bottom:12px">ADDITIONAL CLINICAL CAVEATS — not in calculator</div>
   <div style="font-size:14px;font-weight:700;color:#4a7c4e;letter-spacing:1px;margin-bottom:10px">CONSIDER GOING UP</div>
@@ -120,16 +125,16 @@ input::-webkit-outer-spin-button,input::-webkit-inner-spin-button{-webkit-appear
   <div style="font-size:14px;font-weight:700;color:#c05050;letter-spacing:1px;margin-bottom:10px;margin-top:16px">CONSIDER CANDIDACY</div>
   <div class="caveat-box" style="background:#fdf0f0;border-left:4px solid #c05050"><div style="font-weight:700;color:#434343;font-size:17px;margin-bottom:4px">Liver impairment</div><div style="color:#555;font-size:16px;line-height:1.6">Elevated LFTs, hepatitis, or cirrhosis will slow ketamine metabolism. Consider whether this client is an appropriate candidate at all before proceeding.</div></div>
   <div class="caveat-box" style="background:#fdf0f0;border-left:4px solid #c05050"><div style="font-weight:700;color:#434343;font-size:17px;margin-bottom:4px">Cardiovascular history</div><div style="color:#555;font-size:16px;line-height:1.6">Uncontrolled hypertension, arrhythmia, or significant CAD may make ketamine inappropriate entirely. Consider candidacy before scheduling.</div></div>
-  <div class="caveat-box" style="background:#fdf0f0;border-left:4px solid #c05050"><div style="font-weight:700;color:#434343;font-size:17px;margin-bottom:4px">CNS depressants on board</div><div style="color:#555;font-size:16px;line-height:1.6">If gabapentin, sleep meds, antipsychotics, or benzos were not held as recommended, consider postponing the session rather than proceeding.</div></div>
+  <div class="caveat-box" style="background:#fdf0f0;border-left:4px solid #c05050"><div style="font-weight:700;color:#434343;font-size:17px;margin-bottom:4px">CNS depressants on board</div><div style="color:#555;font-size:16px;line-height:1.6">If gabapentin, sleep meds, antipsychotics, or benzos were not held as recommended, consider postponing rather than proceeding.</div></div>
 </div>
 
-<!-- CLINICAL REMINDER -->
+<!-- Clinical Reminder -->
 <div style="background:#fff8f0;border:2px solid #d4804a;border-radius:12px;padding:14px;margin-bottom:20px">
   <div style="font-weight:700;color:#d4804a;margin-bottom:5px;font-size:17px">⚠️ Clinical Reminder</div>
-  <p style="font-size:16px;color:#666;line-height:1.6">This tool provides a starting point based on weight-based dosing protocol. Always apply clinical judgment. Check blood pressure before dosing and at 20–30 minutes. Consult your supervising physician for any client outside standard parameters.</p>
+  <p style="margin:0;font-size:16px;color:#666;line-height:1.6">This tool provides a starting point based on weight-based dosing protocol. Always apply clinical judgment. Check blood pressure before dosing and at 20–30 minutes. Consult your supervising physician for any client outside standard parameters.</p>
 </div>
 
-<div style="text-align:center;color:#bbb;font-size:16px;border-top:1px solid #e8e5e0;padding-top:14px;font-weight:600;letter-spacing:0.5px;margin-bottom:20px">
+<div style="text-align:center;color:#bbb;font-size:16px;border-top:1px solid #e8e5e0;padding-top:14px;font-weight:600;letter-spacing:0.5px">
   HEALING THE HELPERS · MARA ADELMAN PA-C · CLINICAL REFERENCE · 2026
 </div>
 </div>
@@ -139,238 +144,209 @@ const GOLD='#F1DCAC',GREY='#434343',GREEN='#4a7c4e',RED='#c05050';
 const BC=['#4a7c4e','#7a9e5a','#c4a832','#d4804a','#c05050'];
 
 const ROUTES=[
-  {abbr:'IV',name:'Intravenous (IV)',color:'#7a8fa6',onset:'Seconds',duration:'30–60 min',durationMins:45,setting:'Clinic only',bio:100,bioLabel:'100%',bioFraction:1.0,bladder:1,bladderRisk:'LOWEST',liver:1,liverRisk:'LOWEST',
+  {abbr:'IV',name:'Intravenous (IV)',color:'#7a8fa6',onset:'Seconds',duration:'30–60 min',dur:45,bio:100,bioLabel:'100%',bl:1,blLabel:'LOWEST',li:1,liLabel:'LOWEST',
    dose:'0.5 mg/kg over 40 min (~35mg avg adult). Range 0.5–1.0 mg/kg.',
    pros:['100% bioavailability — highest of any route','Fastest onset — seconds','Most precise dosing control','Gold standard for research and chronic pain'],
    cons:['IV line required','Clinic-only — not portable','Higher cost','Most invasive'],
-   bladderNote:'No first-pass metabolism. Metabolite exposure tied to dose and frequency only. Risk mainly with chronic or high-dose use.',
-   liverNote:'No first-pass metabolism. At standard therapeutic doses (0.5 mg/kg per infusion, 6–8 sessions), cumulative hepatic load is low.',
-   clinicalNote:'Gold standard for anesthesia and chronic pain infusions. Not practical for retreat or at-home KAP models. Used by CIT and specialty ketamine clinics.',
-   directions:['Administered by medical provider only — IV line placed in arm or hand','Effects begin within seconds — be reclined before infusion starts','No solid food for 6 hours before your session (ASA NPO guidelines)','No liquids 2 hours before — clear fluids are fine up until then','Blood pressure before, at 20–30 min, and after','No driving for 24 hours — arrange transport home before your session','Remain in clinic until your provider clears you to leave']},
-  {abbr:'IM',name:'Intramuscular (IM)',color:'#8fa67a',onset:'3–5 min',duration:'30–60 min',durationMins:45,setting:'Clinic or supervised home',bio:93,bioLabel:'~93%',bioFraction:0.93,bladder:2,bladderRisk:'LOW',liver:2,liverRisk:'LOW',
+   blNote:'No first-pass metabolism. Metabolite exposure tied to dose and frequency only. Risk mainly with chronic or high-dose use.',
+   liNote:'No first-pass metabolism. At standard therapeutic doses, cumulative hepatic load is low.',
+   clinNote:'Gold standard for anesthesia and chronic pain infusions. Not practical for retreat or at-home KAP models.',
+   dirs:['Administered by medical provider only — IV line placed in arm or hand','Effects begin within seconds — be reclined before infusion starts','No solid food for 6 hours before your session (ASA NPO guidelines)','No liquids 2 hours before — clear fluids are fine up until then','Blood pressure before, at 20–30 min, and after','No driving for 24 hours — arrange transport home before your session','Remain in clinic until your provider clears you to leave']},
+  {abbr:'IM',name:'Intramuscular (IM)',color:'#8fa67a',onset:'3–5 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~93%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
    dose:'Starting 0.5 mg/kg (approx 25–50mg avg adult). Standard 0.5–1.5 mg/kg (75–150mg). Mean in KAP programs ~100mg.',
    pros:['Very high bioavailability (~93%)','No IV line needed','Fast onset','Bypasses first-pass metabolism','Most common psychiatric KAP format'],
    cons:['Injection required','Cannot adjust dose mid-session','Clinic or provider presence needed','Possible injection site soreness'],
-   bladderNote:'No first-pass effect. Lower urinary metabolite burden than sublingual or oral. Risk tied primarily to dose and frequency rather than route.',
-   liverNote:'No first-pass metabolism. Drug enters systemic circulation directly from muscle tissue. Safe for most clients with mild to moderate liver concerns at standard therapeutic doses.',
-   clinicalNote:"Most common format for in-person KAP and retreat sessions. Mara's preferred route for retreat use. One approach: give 75% in one arm, wait, offer the remaining 25% in the other arm so the client can choose their own depth.",
-   directions:['Administered by a medical provider — you do not inject yourself','Injection goes into a large muscle — upper arm, thigh, or buttock','No solid food for 4 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','Have your nest ready beforehand — blanket, eyeshades, music','Lie down before onset — effects begin in 3–5 minutes','Cannot adjust the dose once injected — share any anxieties beforehand','Blood pressure before, at 20–30 minutes, and after','No driving for 24 hours — arrange transport home before your session']},
-  {abbr:'SQ',name:'Subcutaneous (SubQ)',color:'#7aaa8f',onset:'10–20 min',duration:'30–60 min',durationMins:45,setting:'Clinic or supervised home',bio:93,bioLabel:'~90–95%',bioFraction:0.93,bladder:2,bladderRisk:'LOW',liver:2,liverRisk:'LOW',
+   blNote:'No first-pass effect. Lower urinary metabolite burden than sublingual or oral. Risk tied primarily to dose and frequency rather than route.',
+   liNote:'No first-pass metabolism. Drug enters systemic circulation directly from muscle tissue. Safe for most clients with mild to moderate liver concerns.',
+   clinNote:"Most common format for in-person KAP and retreat sessions. Mara's preferred route for retreat use. One approach: give 75% in one arm, wait, offer the remaining 25% in the other arm so the client can choose their own depth.",
+   dirs:['Administered by a medical provider — you do not inject yourself','Injection goes into a large muscle — upper arm, thigh, or buttock','No solid food for 6 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','Have your nest ready beforehand — blanket, eyeshades, music','Lie down before onset — effects begin in 3–5 minutes','Cannot adjust the dose once injected — share any anxieties beforehand','Blood pressure before, at 20–30 minutes, and after','No driving for 24 hours — arrange transport home before your session']},
+  {abbr:'SQ',name:'Subcutaneous (SubQ)',color:'#7aaa8f',onset:'10–20 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~90–95%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
    dose:'Starting 0.5 mg/kg (approx 25–50mg avg adult). Standard 0.5–1.5 mg/kg (75–150mg). As low as 0.1 mg/kg shown effective for depression.',
    pros:['Near-identical bioavailability to IM (~90–95%)','No IV line needed','Less painful than IM for many clients','Gentler slower onset','Possible self-administration with training','Good for maintenance'],
    cons:['Injection still required','Slower onset than IM','Less clinical data than IV or IM','Possible local skin irritation','Requires training for self-administration'],
-   bladderNote:'No first-pass metabolism. Metabolite profile similar to IM. Bladder risk tied to dose and frequency rather than route.',
-   liverNote:'No first-pass metabolism. Absorbed directly into systemic circulation through subcutaneous tissue. Hepatic load nearly identical to IM at equivalent doses.',
-   clinicalNote:'Growing use for treatment-resistant depression, especially maintenance. Bioavailability nearly matches IM but onset is gentler. The KADS trial demonstrated efficacy for treatment-resistant depression using SC racemic ketamine.',
-   directions:['Injection goes just under the skin — abdomen, upper arm, or thigh — not into muscle','Needle is small, similar to insulin injection','No solid food for 4 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','If self-administering: clean site with alcohol swab, pinch skin, insert needle at 45-degree angle','Inject slowly, withdraw, apply gentle pressure — do not rub the site','Have nest ready — effects begin in 10–20 minutes, gentler than IM','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
-  {abbr:'IN',name:'Intranasal (IN)',color:'#c4a832',onset:'5–15 min',duration:'45–90 min',durationMins:67,setting:'Clinic or supervised home',bio:45,bioLabel:'25–50%',bioFraction:0.35,bladder:3,bladderRisk:'MODERATE',liver:3,liverRisk:'MODERATE',
-   dose:'Spravato (esketamine): 56mg or 84mg fixed. Compounded racemic: 100–200mg in divided sprays.',
-   doseHtml:`<div style="margin-top:2px;font-size:13px"><b style="color:#3a5a8a">Spravato:</b> <span style="color:#888">56mg or 84mg fixed.</span></div><div style="margin-top:3px;font-size:13px"><b style="color:#c4a832">Compounded:</b> <span style="color:#888">100–200mg, multiple sprays.</span></div>`,
-   pros:['No needles — no injection required','Bypasses first-pass for the absorbed fraction (~35%)','Rapid onset 5–15 min','Compoundable as racemic ketamine','Better bladder and liver profile than sublingual or RDT','Good option for clients who cannot tolerate injections'],
-   cons:['Variable absorption (8–50%)','Nasal irritation possible','Requires correct technique','Congestion reduces absorption significantly'],
-   bladderNote:'At bioavailability-adjusted doses (100–200mg), approximately 65% of what you administer drains down the throat and is swallowed — undergoing first-pass hepatic metabolism just like an oral dose. Bladder safety studies were done on esketamine (Spravato) at 56–84mg, not at full bioavailability-matched doses. Better than sublingual or RDT, worse than injection routes.',
-   liverNote:'At bioavailability-adjusted doses, the unabsorbed ~65% drains into the throat and is swallowed, undergoing first-pass hepatic metabolism. For clients with liver or bile duct concerns, injection routes are preferable.',
-   clinicalNote:'At low doses (Spravato 56–84mg), clinical trials found no bladder toxicity. At higher bioavailability-adjusted doses, the unabsorbed portion undergoes first-pass. For clients where bladder safety is the primary concern, SubQ or IM may be gentler than high-dose compounded intranasal.',
-   directions:['No solid food for 2 hours before your session','Clear fluids are fine up to the time of dosing','Blow nose gently 10–15 minutes before dosing','Sit upright — do not tilt head back too far','Insert tip just inside one nostril, press pump once while breathing in gently','Alternate nostrils with each spray','Do not blow nose or sniff hard for 5 minutes after each spray','Try not to swallow any post-nasal drip — spit if needed','If congested, absorption will be reduced — let your provider know','Have your nest ready — effects begin in 5–15 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
-  {abbr:'RDT',name:'Rapid Dissolve Tablet (RDT)',color:'#b8a090',onset:'10–20 min',duration:'45–90 min',durationMins:67,setting:'Clinic or supervised home',bio:24,bioLabel:'15–30%',bioFraction:0.225,bladder:4,bladderRisk:'MOD–HIGH',liver:4,liverRisk:'MOD–HIGH',
-   dose:'Starting 100–150mg. Standard 100–300mg. Range up to 400mg. Compounded in 50mg and 100mg units.',
+   blNote:'No first-pass metabolism. Metabolite profile similar to IM. Bladder risk tied to dose and frequency rather than route.',
+   liNote:'No first-pass metabolism. Absorbed directly into systemic circulation. Hepatic load nearly identical to IM at equivalent doses.',
+   clinNote:'Growing use for treatment-resistant depression, especially maintenance. Bioavailability nearly matches IM but onset is gentler. The KADS trial demonstrated efficacy for treatment-resistant depression using SC racemic ketamine.',
+   dirs:['Injection goes just under the skin — abdomen, upper arm, or thigh — not into muscle','Needle is small, similar to insulin injection','No solid food for 6 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','If self-administering: clean site with alcohol swab, pinch skin, insert needle at 45-degree angle','Inject slowly, withdraw, apply gentle pressure — do not rub the site','Have nest ready — effects begin in 10–20 minutes, gentler than IM','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
+  {abbr:'IN',name:'Intranasal (IN)',color:'#c4a832',onset:'5–15 min',duration:'45–90 min',dur:67,bio:45,bioLabel:'25–50%',bl:3,blLabel:'MODERATE',li:3,liLabel:'MODERATE',
+   dose:'Compounded racemic: 100–200mg via multiple sprays (~10mg each), alternating nostrils. Empirical dosing.',
+   pros:['No needles — no injection required','Bypasses first-pass for the absorbed fraction (~35%)','Rapid onset 5–15 min','Better bladder and liver profile than sublingual or RDT','Good option for clients who cannot tolerate injections'],
+   cons:['Variable absorption (8–50%)','Nasal irritation possible','Requires correct technique','Congestion reduces absorption significantly','Unabsorbed portion drains to throat and undergoes first-pass'],
+   blNote:'At bioavailability-adjusted doses, approximately 65% of what you administer drains down the throat and is swallowed — undergoing first-pass hepatic metabolism. Better than sublingual or RDT, worse than injection routes.',
+   liNote:'At bioavailability-adjusted doses, the unabsorbed ~65% drains into the throat and is swallowed, undergoing first-pass hepatic metabolism. For clients with liver or bile duct concerns, injection routes are preferable.',
+   clinNote:'Compounded racemic intranasal uses empirical dosing — the weight-based calculator does not apply. Spray math at 100mg/ml concentration: each spray delivers 0.1ml = 10mg ketamine, so 10 sprays = 1ml = 100mg. Low dose: 20–50mg (2–5 sprays). Moderate dose: 50–100mg (5–10 sprays). High dose: 100–150mg (10–15 sprays). Alternate nostrils with each spray and pause between groups of 4–5 sprays to allow absorption before continuing. Note: the unabsorbed portion drains to the throat — instruct client to try not to swallow it.',
+   dirs:['No solid food for 2 hours before your session','No liquids 30 minutes before — clear fluids are fine up until then','Blow nose gently 10–15 minutes before dosing','Sit upright — do not tilt head back too far','Insert tip just inside one nostril, press pump once while breathing in gently','Alternate nostrils with each spray','Do not blow nose or sniff hard for 5 minutes after each spray','Try not to swallow any post-nasal drip — spit if needed','If congested, absorption will be reduced — let your provider know','Have your nest ready — effects begin in 5–15 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
+  {abbr:'RDT',name:'Rapid Dissolve Tablet (RDT)',color:'#b8a090',onset:'10–20 min',duration:'45–90 min',dur:67,bio:24,bioLabel:'15–30%',bl:4,blLabel:'MOD–HIGH',li:4,liLabel:'MOD–HIGH',
+   dose:'Starting 100–150mg. Standard 100–300mg. Range up to 400mg. Compounded in 50mg and 100mg units. Empirical dosing.',
    pros:['Dissolves in 1–3 minutes — faster onset than troche','Full dose presented to mucosa quickly','Shorter hold time','Won\'t melt in transport','Compounded in 50mg and 100mg doses'],
    cons:['Strong taste — place under tongue NOT on top','Faster saliva accumulation increases swallowing risk','Many clients never told not to swallow — must instruct explicitly','Partial first-pass if saliva swallowed','Variable bioavailability (15–30%)'],
-   bladderNote:'If saliva is not swallowed, first-pass is minimized. Because it dissolves faster than a troche, saliva accumulates faster — increasing swallowing risk. Comparable bladder risk to troches when used correctly.',
-   liverNote:'Partial first-pass if swallowed. For clients with any liver concern, strict spit-don\'t-swallow adherence is essential. If significant liver impairment, prefer intranasal or injection routes.',
-   clinicalNote:'Developed by the Ketamine Training Center to deliver the full dose to buccal mucosa in 1–2 minutes rather than 5+. Because bioavailability is ~22.5%, the administered dose is significantly higher than IM — this is expected and correct.',
-   directions:['No solid food for 2 hours before your session','No liquids 30 minutes before — clear fluids OK until then','Place tablet UNDER tongue or between cheek and gum — NOT on top of tongue','Dissolves in 1–3 minutes — much faster than a troche','Hold the liquid in place — DO NOT SWALLOW','Spit accumulated saliva throughout — swallowing causes first-pass liver and bladder exposure','Hold 8–15 minutes then spit out any residue','Lie down — effects begin in 10–20 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — not until after a full night of sleep']},
-  {abbr:'SL',name:'Sublingual Lozenge / Troche',color:'#c4a882',onset:'15–30 min',duration:'45–90 min',durationMins:67,setting:'Clinic or supervised home',bio:30,bioLabel:'24–30%',bioFraction:0.27,bladder:4,bladderRisk:'MOD–HIGH',liver:4,liverRisk:'MOD–HIGH',
-   dose:'Starting 150–200mg. Standard 200–350mg. Range up to 500mg. Mean in KAP programs ~277mg.',
+   blNote:'If saliva is not swallowed, first-pass is minimized. Because it dissolves faster than a troche, saliva accumulates faster — increasing swallowing risk. Comparable bladder risk to troches when used correctly.',
+   liNote:'Partial first-pass if swallowed. For clients with any liver concern, strict spit-don\'t-swallow adherence is essential. If significant liver impairment, prefer intranasal or injection routes.',
+   clinNote:'Developed by the Ketamine Training Center to deliver the full dose to buccal mucosa in 1–2 minutes rather than 5+. Uses empirical dosing — the weight-based calculator does not apply. Use the 100–400mg empirical range as your starting point.',
+   dirs:['No solid food for 2–4 hours before your session','No liquids 30–60 minutes before — clear fluids OK until then','Place tablet UNDER tongue or between cheek and gum — NOT on top of tongue','Dissolves in 1–3 minutes — much faster than a troche','Hold the liquid in place — DO NOT SWALLOW','Spit accumulated saliva throughout — swallowing causes first-pass liver and bladder exposure','Hold 8–15 minutes then spit out any residue','Lie down — effects begin in 10–20 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — not until after a full night of sleep']},
+  {abbr:'SL',name:'Sublingual Lozenge / Troche',color:'#c4a882',onset:'15–30 min',duration:'45–90 min',dur:67,bio:30,bioLabel:'24–30%',bl:4,blLabel:'MOD–HIGH',li:4,liLabel:'MOD–HIGH',
+   dose:'Starting 150–200mg. Standard 200–350mg. Range up to 500mg. Mean in KAP programs ~277mg. Empirical dosing.',
    pros:['No needles or injection','Home-use potential','Smooth gradual onset curve','Waxy texture stays in place under tongue','Widely available through compounding pharmacies'],
    cons:['Slow dissolution (5–15 min) — long hold time','Partial first-pass if saliva is swallowed','Lower bioavailability than injection routes','Can melt in transport','Variable absorption'],
-   bladderNote:'Partial first-pass metabolism if saliva is swallowed. Higher urinary metabolite concentrations than intranasal or IM/IV. Most common at-home format but requires strict spitting protocol.',
-   liverNote:'Partial first-pass increases hepatic load vs. parenteral routes. For clients with any liver history, switching to intranasal or injection routes should be strongly considered.',
-   clinicalNote:'Most common at-home KAP format. Slower dissolve gives a more gradual onset — a feature for anxious clients. Because bioavailability is ~27%, the administered dose is much higher than IM. Do NOT swallow — spit accumulated saliva throughout.',
-   directions:['No solid food for 2 hours before your session','No liquids 30 minutes before — clear fluids OK until then','Place lozenge under tongue or between cheek and gum — not on top','Let dissolve slowly 5–15 minutes — do not chew or swallow it','As saliva accumulates — SPIT IT OUT, do not swallow','Spitting is not optional — swallowing = full first-pass liver and bladder exposure','Spit out any residue after 15–20 minutes','Lie down — effects begin in 15–30 minutes','Blood pressure before and at 20–30 min — home clients must have a home cuff','No driving for 24 hours — not until after a full night of sleep']},
+   blNote:'Partial first-pass metabolism if saliva is swallowed. Higher urinary metabolite concentrations than intranasal or IM/IV.',
+   liNote:'Partial first-pass increases hepatic load vs. parenteral routes. For clients with any liver history, switching to intranasal or injection routes should be strongly considered.',
+   clinNote:'Most common at-home KAP format. Uses empirical dosing — the weight-based calculator does not apply. Use the 150–500mg empirical range as your starting point. Do NOT swallow — spit accumulated saliva throughout.',
+   dirs:['No solid food for 2–4 hours before your session','No liquids 30–60 minutes before — clear fluids OK until then','Place lozenge under tongue or between cheek and gum — not on top','Let dissolve slowly 5–15 minutes — do not chew or swallow it','As saliva accumulates — SPIT IT OUT, do not swallow','Spitting is not optional — swallowing = full first-pass liver and bladder exposure','Spit out any residue after 15–20 minutes','Lie down — effects begin in 15–30 minutes','Blood pressure before and at 20–30 min — home clients must have a home cuff','No driving for 24 hours — not until after a full night of sleep']}
 ];
 
 const PARAMS_UP=[
-  {id:'psy',label:'Prior psychedelic experience',desc:'Meaningful prior experience with ketamine or other psychedelics, responded well',delta:0.25},
+  {id:'psych',label:'Prior psychedelic experience',desc:'Meaningful prior experience with ketamine or other psychedelics, responded well',delta:0.25},
   {id:'tol',label:'Tolerant to medications',desc:'History of requiring higher doses of anesthetics, sedatives, opioids, benzos, or other CNS-active drugs',delta:0.25},
-  {id:'hwt',label:'High body weight (200+ lbs / 90+ kg)',desc:'Larger body mass may mean faster metabolism, potentially requiring more to reach therapeutic plasma levels',delta:0.25},
-  {id:'pkl',label:'Prior ketamine sessions, no adverse reaction',desc:'Multiple therapeutic sessions completed and tolerated well — documented tolerance warrants a modest upward adjustment',delta:0.25},
+  {id:'heavy',label:'High body weight (200+ lbs / 90+ kg)',desc:'Larger body mass may mean faster metabolism, potentially requiring more to reach therapeutic plasma levels',delta:0.25},
+  {id:'prior',label:'Prior ketamine sessions, no adverse reaction',desc:'Multiple therapeutic sessions completed and tolerated well — documented tolerance warrants a modest upward adjustment',delta:0.25}
 ];
 const PARAMS_DOWN=[
   {id:'anx',label:'Anxiety present',desc:'Significant anxiety, nervousness about the session, or anxiety-predominant diagnosis',delta:0.25},
-  {id:'lwt',label:'Low body weight (under 120 lbs / 55 kg)',desc:'Even weight-based dosing can overshoot in lighter clients, particularly those with restricted eating history',delta:0.25},
+  {id:'low',label:'Low body weight (under 120 lbs / 55 kg)',desc:'Even weight-based dosing can overshoot in lighter clients, particularly those with restricted eating history',delta:0.25},
   {id:'age',label:'Older age (65+)',desc:'Slower hepatic metabolism and reduced drug clearance — same mg/kg hits harder, lasts longer, carries more cardiovascular risk',delta:0.25},
-  {id:'fst',label:'First ketamine session ever',desc:'No prior tolerance baseline — conservative start allows observation of individual response before titrating up',delta:0.25},
+  {id:'first',label:'First ketamine session ever',desc:'No prior tolerance baseline — conservative start allows observation of individual response before titrating up',delta:0.25}
 ];
 
-let expanded=null, selectedRoute=null, sortMode='order', weightUnit='lbs', checkedParams={};
+const EMPIRICAL=['IN','RDT','SL'];
 
-function r2(n){return Math.round(n*100)/100;}
+let expanded=null,selectedRoute=null,sortMode='default',weightUnit='lbs',checked={};
+
 function r1(n){return Math.round(n*10)/10;}
-function kgFromLbs(l){return l/2.205;}
+function r2(n){return Math.round(n*100)/100;}
+function kgFromLbs(lbs){return lbs/2.205;}
+function dots(level){return [1,2,3,4,5].map(i=>`<div style="width:10px;height:10px;border-radius:3px;background:${i<=level?BC[level-1]:'#e0dbd4'};display:inline-block;margin-right:3px"></div>`).join('');}
 
-function dots(level,colors){
-  return [1,2,3,4,5].map(i=>`<span class="dot" style="background:${i<=level?colors[level-1]:'#e0dbd4'}"></span>`).join('');
-}
-
-function makeSafetyBox(color,goldColor,label,text){
-  return `<div class="safety-box" style="background:${goldColor};border-left:4px solid ${color}">
-    <div style="font-size:14px;font-weight:700;color:${color};margin-bottom:4px;letter-spacing:1px">${label}</div>
-    <p style="font-size:16px;color:#555;line-height:1.6;margin:0">${text}</p>
-  </div>`;
+function getSorted(){
+  const r=[...ROUTES];
+  if(sortMode==='bladder')r.sort((a,b)=>a.bl-b.bl);
+  else if(sortMode==='liver')r.sort((a,b)=>a.li-b.li);
+  else if(sortMode==='bio')r.sort((a,b)=>b.bio-a.bio);
+  else if(sortMode==='duration')r.sort((a,b)=>b.dur-a.dur);
+  return r;
 }
 
 function renderRoutes(){
-  const sorted=[...ROUTES].sort((a,b)=>{
-    if(sortMode==='bladder') return a.bladder-b.bladder;
-    if(sortMode==='liver') return a.liver-b.liver;
-    if(sortMode==='bio') return b.bio-a.bio;
-    if(sortMode==='duration') return b.durationMins-a.durationMins;
-    return 0;
-  });
-  const grid=document.getElementById('routes-grid');
-  grid.innerHTML='';
-  sorted.forEach(r=>{
+  const c=document.getElementById('routes-container');
+  c.innerHTML='';
+  getSorted().forEach(r=>{
     const open=expanded===r.abbr;
     const sel=selectedRoute===r.abbr;
     const div=document.createElement('div');
-    div.style.cssText=`border:2px solid ${sel?r.color:open?r.color+'80':'#e8e5e0'};border-radius:12px;overflow:hidden;margin-bottom:10px;box-shadow:${open?'0 4px 16px rgba(0,0,0,0.09)':'0 1px 3px rgba(0,0,0,0.04)'};transition:all 0.2s`;
+    div.className='route-card';
+    div.style.borderColor=sel?r.color:open?r.color+'80':'#e8e5e0';
+    if(open)div.style.boxShadow='0 4px 16px rgba(0,0,0,0.09)';
 
-    const prosHtml=r.pros.map(p=>`<div class="adv-row"><span style="color:${GREEN};font-size:17px;flex-shrink:0">✓</span><span style="font-size:16px;color:#333;line-height:1.6">${p}</span></div>`).join('');
-    const consHtml=r.cons.map(c=>`<div class="lim-row"><span style="color:${RED};font-size:17px;flex-shrink:0">✗</span><span style="font-size:16px;color:#333;line-height:1.6">${c}</span></div>`).join('');
-    const dirsHtml=r.directions.map((d,i)=>`<div class="dir-row"><div class="dir-num" style="background:${r.color};min-width:24px">${i+1}</div><span style="font-size:16px;color:#333;line-height:1.6;padding-top:2px">${d}</span></div>`).join('');
+    const doseDisplay=r.abbr==='IN'
+      ?`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Compounded racemic — 100mg/ml, 0.1ml/spray = 10mg</b></div>
+        <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 20–50mg (2–5 sprays)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 50–100mg (5–10 sprays)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 100–150mg (10–15 sprays)</div>`
+      :`<b style="color:#555">Dose:</b> <span style="color:#888">${r.dose}</span>`;
 
     div.innerHTML=`
       <div class="route-header" style="background:${sel?'#fefcf5':'white'}" onclick="toggleExpand('${r.abbr}')">
-        <div style="width:50px;height:50px;border-radius:10px;background:${r.color};display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:14px;flex-shrink:0">${r.abbr}</div>
-        <div style="flex:1;min-width:0">
-          <div style="display:flex;align-items:center;gap:7px;flex-wrap:wrap">
-            <span style="font-weight:700;color:${GREY};font-size:18px">${r.name}</span>
-            ${sel?`<span style="background:${r.color};color:white;font-size:12px;font-weight:700;padding:2px 8px;border-radius:8px">SELECTED</span>`:''}
+        <div class="abbr-box" style="background:${r.color}">${r.abbr}</div>
+        <div class="route-info">
+          <div class="route-name">${r.name}${sel?` <span style="background:${r.color};color:white;font-size:12px;font-weight:700;padding:2px 8px;border-radius:8px">SELECTED</span>`:''}</div>
+          ${r.abbr==='IV'?'<div style="font-size:13px;font-weight:700;color:#c05050;margin-bottom:4px">⚠ Clinic use only</div>':''}<div class="route-stat"><b>Onset:</b> ${r.onset} &nbsp;·&nbsp; <b>Duration:</b> ${r.duration}</div>
+          <div class="route-stat"><b>Bioavailability:</b> ${r.bioLabel}</div>
+          <div class="route-stat" style="font-size:15px">${doseDisplay}</div>
+          <div style="display:flex;gap:14px;margin-top:6px">
+            <div><div style="font-size:11px;color:#bbb;font-weight:600;margin-bottom:3px">BLADDER</div>${dots(r.bl)}<div style="font-size:11px;color:#bbb;margin-top:2px">${r.blLabel}</div></div>
+            <div><div style="font-size:11px;color:#bbb;font-weight:600;margin-bottom:3px">LIVER</div>${dots(r.li)}<div style="font-size:11px;color:#bbb;margin-top:2px">${r.liLabel}</div></div>
           </div>
-          <div style="color:#888;font-size:16px;margin-top:2px"><b style="color:#777">Onset:</b> ${r.onset} &nbsp;·&nbsp; <b style="color:#777">Duration:</b> ${r.duration}</div>
-          <div style="font-size:16px;margin-top:2px">${r.doseHtml?r.doseHtml:r.dose}</div>
-          <div style="font-size:16px;margin-top:3px"><b style="color:#555">Bioavailability:</b> <span style="color:#888">${r.bioLabel}</span></div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;flex-shrink:0;align-items:center">
-          <div style="text-align:center">
-            <div style="font-size:17px;font-weight:800;color:${r.color}">${r.bioLabel}</div>
-            <div style="font-size:12px;color:#bbb;font-weight:600">BIOAVAIL</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:12px;color:#bbb;font-weight:600;margin-bottom:3px">BLADDER</div>
-            <div class="dots">${dots(r.bladder,BC)}</div>
-          </div>
-          <div style="text-align:center">
-            <div style="font-size:12px;color:#bbb;font-weight:600;margin-bottom:3px">LIVER</div>
-            <div class="dots">${dots(r.liver,BC)}</div>
-          </div>
+          <button onclick="event.stopPropagation();selectRoute('${r.abbr}')" style="width:100%;margin-top:10px;padding:9px 14px;border-radius:9px;border:2px solid ${r.color};background:${sel?r.color:'white'};color:${sel?'white':r.color};font-weight:700;font-size:16px;cursor:pointer;font-family:inherit">${sel?'✓ Selected':(EMPIRICAL.includes(r.abbr)?'No calculator needed — see above for dosing':'Use this route for dose calculation')}</button>
         </div>
       </div>
-      <div style="padding:0 12px 10px 12px">
-        <button onclick="event.stopPropagation();selectRoute('${r.abbr}')" style="width:100%;padding:9px 14px;border-radius:9px;border:2px solid ${r.color};background:${sel?r.color:'white'};color:${sel?'white':r.color};font-weight:700;font-size:16px;cursor:pointer;font-family:inherit;transition:all 0.15s">
-          ${sel?'✓ Selected for dose calculation':'Use this route for dose calculation'}
-        </button>
-      </div>
-      ${!open?`<div class="tap-strip" onclick="toggleExpand('${r.abbr}')"><span style="font-size:16px;color:#999;font-weight:700">TAP TO EXPAND</span><span style="font-size:16px;color:#bbb">▼</span></div>`:''}
-      ${open?`<div style="border-top:1px solid ${r.color}30;padding:16px;background:#fefefe">
-        <div style="font-size:14px;font-weight:700;color:${GREEN};letter-spacing:1px;margin-bottom:10px">ADVANTAGES</div>
-        ${prosHtml}
-        <div style="font-size:14px;font-weight:700;color:${RED};letter-spacing:1px;margin-bottom:10px;margin-top:14px">LIMITATIONS</div>
-        ${consHtml}
-        <div style="background:#f8f6f2;border-radius:10px;padding:14px;margin-bottom:12px;margin-top:14px">
+      ${!open?`<div class="tap-strip" onclick="toggleExpand('${r.abbr}')">TAP TO EXPAND ▼</div>`:''}
+      ${open?`<div class="expand-body">
+        <div class="adv-label" style="color:${GREEN}">ADVANTAGES</div>
+        ${r.pros.map(p=>`<div class="adv-item" style="background:#eef5ee"><span style="color:${GREEN};font-size:17px;flex-shrink:0">✓</span><span style="font-size:16px;color:#333;line-height:1.6">${p}</span></div>`).join('')}
+        <div class="adv-label" style="color:${RED};margin-top:14px">LIMITATIONS</div>
+        ${r.cons.map(c=>`<div class="adv-item" style="background:#fdf0f0"><span style="color:${RED};font-size:17px;flex-shrink:0">✗</span><span style="font-size:16px;color:#333;line-height:1.6">${c}</span></div>`).join('')}
+        <div class="directions-box" style="margin-top:14px">
           <div style="font-size:14px;font-weight:700;color:${r.color};letter-spacing:1px;margin-bottom:10px">PATIENT DIRECTIONS</div>
-          ${dirsHtml}
+          ${r.dirs.map((d,i)=>`<div class="dir-item"><div class="dir-num" style="background:${r.color}">${i+1}</div><span style="font-size:16px;color:#333;line-height:1.6;padding-top:2px">${d}</span></div>`).join('')}
         </div>
-        ${makeSafetyBox('#c4a832','#fdf8ed','BLADDER SAFETY',r.bladderNote)}
-        ${makeSafetyBox(GREEN,'#eef5ee','LIVER & BILIARY SAFETY',r.liverNote)}
-        ${makeSafetyBox(r.color,'#f5f3ef','CLINICAL NOTE',r.clinicalNote)}
-      </div>`:''}
-    `;
-    grid.appendChild(div);
+        <div class="safety-box" style="background:#fdf8ed;border-left:4px solid #F1DCAC"><div style="font-size:14px;font-weight:700;color:#c4a832;margin-bottom:4px;letter-spacing:1px">BLADDER SAFETY</div><p style="margin:0;font-size:16px;color:#555;line-height:1.6">${r.blNote}</p></div>
+        <div class="safety-box" style="background:#eef5ee;border-left:4px solid #4a7c4e"><div style="font-size:14px;font-weight:700;color:#4a7c4e;margin-bottom:4px;letter-spacing:1px">LIVER & BILIARY SAFETY</div><p style="margin:0;font-size:16px;color:#555;line-height:1.6">${r.liNote}</p></div>
+        <div class="safety-box" style="background:#f5f3ef;border-left:4px solid ${r.color}"><div style="font-size:14px;font-weight:700;color:${r.color};margin-bottom:4px;letter-spacing:1px">CLINICAL NOTE</div><p style="margin:0;font-size:16px;color:#444;line-height:1.6">${r.clinNote}</p></div>
+      </div>`:''}`;
+    c.appendChild(div);
   });
 }
 
 function renderParams(){
-  const up=document.getElementById('params-up');
-  const down=document.getElementById('params-down');
-  up.innerHTML='';down.innerHTML='';
-  PARAMS_UP.forEach(p=>{
-    const a=!!checkedParams[p.id];
-    const d=document.createElement('div');
-    d.className='check-row';
-    d.style.cssText+=`border-color:${a?GREEN:'#e8e5e0'};background:${a?'#eef5ee':'#fafaf9'}`;
-    d.innerHTML=`<div class="checkbox" style="border-color:${a?GREEN:'#ccc'};background:${a?GREEN:'white'}">${a?'<span style="color:white;font-size:14px;font-weight:700">✓</span>':''}</div>
-      <div style="flex:1"><div style="font-weight:700;color:${GREY};font-size:17px">${p.label}</div><div style="color:#888;font-size:16px;margin-top:3px;line-height:1.5">${p.desc}</div></div>`;
-    d.onclick=()=>{checkedParams[p.id]=!checkedParams[p.id];renderParams();calc();};
-    up.appendChild(d);
-  });
-  PARAMS_DOWN.forEach(p=>{
-    const a=!!checkedParams[p.id];
-    const d=document.createElement('div');
-    d.className='check-row';
-    d.style.cssText+=`border-color:${a?RED:'#e8e5e0'};background:${a?'#fdf0f0':'#fafaf9'}`;
-    d.innerHTML=`<div class="checkbox" style="border-color:${a?RED:'#ccc'};background:${a?RED:'white'}">${a?'<span style="color:white;font-size:14px;font-weight:700">✓</span>':''}</div>
-      <div style="flex:1"><div style="font-weight:700;color:${GREY};font-size:17px">${p.label}</div><div style="color:#888;font-size:16px;margin-top:3px;line-height:1.5">${p.desc}</div></div>`;
-    d.onclick=()=>{checkedParams[p.id]=!checkedParams[p.id];renderParams();calc();};
-    down.appendChild(d);
+  ['up','down'].forEach(dir=>{
+    const list=dir==='up'?PARAMS_UP:PARAMS_DOWN;
+    const c=document.getElementById('params-'+dir);
+    c.innerHTML='';
+    list.forEach(p=>{
+      const a=!!checked[p.id];
+      const col=dir==='up'?GREEN:RED;
+      const d=document.createElement('div');
+      d.className='param-item';
+      d.style.border=`2px solid ${a?col:'#e8e5e0'}`;
+      d.style.background=a?(dir==='up'?'#eef5ee':'#fdf0f0'):'#fafaf9';
+      d.innerHTML=`<div class="param-check" style="border:2px solid ${a?col:'#ccc'};background:${a?col:'white'}">${a?`<span style="color:white;font-size:14px;font-weight:700">✓</span>`:''}</div><div style="flex:1"><div style="font-weight:700;color:#434343;font-size:17px">${p.label}</div><div style="color:#888;font-size:15px;margin-top:3px;line-height:1.5">${p.desc}</div></div>`;
+      d.onclick=()=>{checked[p.id]=!checked[p.id];renderParams();calc();};
+      c.appendChild(d);
+    });
   });
 }
 
 function renderBanner(){
-  const banner=document.getElementById('route-banner');
-  const r=selectedRoute?ROUTES.find(x=>x.abbr===selectedRoute):null;
-  if(r){
-    banner.innerHTML=`<div style="background:${r.color}22;border:2px solid ${r.color};border-radius:10px;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px">
-      <div style="width:36px;height:36px;border-radius:8px;background:${r.color};display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:13px;flex-shrink:0">${r.abbr}</div>
-      <div style="flex:1"><div style="font-weight:700;color:${GREY};font-size:17px">Route: ${r.name}</div><div style="font-size:16px;color:#666;margin-top:2px">Bioavailability ${r.bioLabel} · dose adjusted automatically</div></div>
-      <button onclick="clearRoute()" style="background:transparent;border:none;color:#aaa;font-size:18px;cursor:pointer;padding:4px 8px">✕</button>
-    </div>`;
+  const route=selectedRoute?ROUTES.find(r=>r.abbr===selectedRoute):null;
+  const b=document.getElementById('route-banner');
+  if(route){
+    b.innerHTML=`<div style="background:${route.color}22;border:2px solid ${route.color};border-radius:10px;padding:10px 14px;margin-bottom:16px;display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:${route.color};display:flex;align-items:center;justify-content:center;color:white;font-weight:800;font-size:13px;flex-shrink:0">${route.abbr}</div><div style="flex:1"><div style="font-weight:700;color:#434343;font-size:17px">Route: ${route.name}</div><div style="font-size:15px;color:#666;margin-top:2px">Bioavailability ${route.bioLabel}</div></div><button onclick="clearRoute()" style="background:transparent;border:none;color:#aaa;font-size:18px;cursor:pointer;padding:4px 8px">✕</button></div>`;
   } else {
-    banner.innerHTML=`<div style="background:#f5f3ef;border:2px dashed #ddd;border-radius:10px;padding:10px 14px;margin-bottom:16px;text-align:center;color:#aaa;font-size:16px">No route selected — expand a card above and tap "Use this route"</div>`;
+    b.innerHTML=`<div style="background:#f5f3ef;border:2px dashed #ddd;border-radius:10px;padding:10px 14px;margin-bottom:16px;text-align:center;color:#aaa;font-size:16px">No route selected — expand a card above and tap "Use this route"</div>`;
   }
-  const s2=document.getElementById('step2-card');
-  s2.style.borderColor=r?r.color:'#e8e5e0';
+  document.getElementById('step2-card').style.borderColor=route?route.color:'#e8e5e0';
 }
 
 function calc(){
   const w=parseFloat(document.getElementById('weight-input').value)||0;
   const kg=weightUnit==='lbs'?kgFromLbs(w):w;
   document.getElementById('kg-equiv').textContent=w&&weightUnit==='lbs'?`= ${r2(kg)} kg`:'';
-  if(!kg){document.getElementById('result').style.display='none';return;}
+  const resultDiv=document.getElementById('result');
+  if(!kg){resultDiv.style.display='none';return;}
 
-  const upDelta=PARAMS_UP.filter(p=>checkedParams[p.id]).reduce((s,p)=>s+p.delta,0);
-  const downDelta=PARAMS_DOWN.filter(p=>checkedParams[p.id]).reduce((s,p)=>s+p.delta,0);
-  const effPerKg=Math.min(2.0,Math.max(0.1,r2(0.5+upDelta-downDelta)));
+  const upD=PARAMS_UP.filter(p=>checked[p.id]).reduce((s,p)=>s+p.delta,0);
+  const dnD=PARAMS_DOWN.filter(p=>checked[p.id]).reduce((s,p)=>s+p.delta,0);
+  const effPerKg=Math.min(2.0,Math.max(0.1,r2(0.5+upD-dnD)));
   const effMg=r1(effPerKg*kg);
   const route=selectedRoute?ROUTES.find(x=>x.abbr===selectedRoute):null;
-  const admMg=effMg;
+  const activeUp=PARAMS_UP.filter(p=>checked[p.id]);
+  const activeDown=PARAMS_DOWN.filter(p=>checked[p.id]);
 
-  // Math row
-  const activeUp=PARAMS_UP.filter(p=>checkedParams[p.id]);
-  const activeDown=PARAMS_DOWN.filter(p=>checkedParams[p.id]);
   let mathHtml=`<div class="math-chip" style="background:#f5f3ef"><div style="font-size:12px;color:#aaa;font-weight:600">BASE</div><div style="font-size:17px;font-weight:700;color:${GREY}">0.5 mg/kg</div></div>`;
   activeUp.forEach(p=>{mathHtml+=`<span style="color:#ccc;font-size:16px">+</span><div class="math-chip" style="background:#eef5ee"><div style="font-size:12px;color:#aaa;font-weight:600">UP</div><div style="font-size:17px;font-weight:700;color:${GREEN}">+${p.delta}</div></div>`;});
   activeDown.forEach(p=>{mathHtml+=`<span style="color:#ccc;font-size:16px">+</span><div class="math-chip" style="background:#fdf0f0"><div style="font-size:12px;color:#aaa;font-weight:600">DOWN</div><div style="font-size:17px;font-weight:700;color:${RED}">−${p.delta}</div></div>`;});
   mathHtml+=`<span style="color:#ccc;font-size:16px">=</span><div class="math-chip" style="background:white;border:2px solid #F1DCAC"><div style="font-size:12px;color:#c4a832;font-weight:600">TARGET</div><div style="font-size:17px;font-weight:700;color:${GREY}">${effPerKg} mg/kg</div></div>`;
   document.getElementById('math-row').innerHTML=mathHtml;
 
-  document.getElementById('result-label').textContent=route?`STARTING DOSE — ${route.name.toUpperCase()}`:'STARTING DOSE';
-  document.getElementById('result-mg').innerHTML=`${admMg}<span style="font-size:22px;font-weight:400;margin-left:5px">mg</span>`;
-
-  const bioBox=document.getElementById('result-bio');
-  bioBox.style.display='none';
-
-  document.getElementById('result-math').textContent=`${effPerKg} mg/kg × ${r2(kg)} kg`;
-  document.getElementById('result-range').textContent=route?`Route range: ${route.dose}`:'Select a route in Step 1 to see the dose range for that route';
-  document.getElementById('result').style.display='block';
+  // The only change for empirical routes — just show different text
+  if(route&&EMPIRICAL.includes(route.abbr)){
+    document.getElementById('result-label').textContent='NO CALCULATOR NEEDED';
+    document.getElementById('result-mg').innerHTML=`<span style="font-size:22px;font-weight:700;color:#888">See above for dosing ranges</span>`;
+    document.getElementById('result-math').textContent='';
+    document.getElementById('result-range').textContent={'IN':'Compounded racemic: 100–200mg','RDT':'Rapid dissolve tablet: 100–400mg','SL':'Sublingual troche: 150–500mg'}[route.abbr];
+  } else {
+    document.getElementById('result-label').textContent=route?`STARTING DOSE — ${route.name.toUpperCase()}`:'STARTING DOSE';
+    document.getElementById('result-mg').innerHTML=`${effMg}<span style="font-size:22px;font-weight:400;margin-left:5px">mg</span>`;
+    document.getElementById('result-math').textContent=`${effPerKg} mg/kg × ${r2(kg)} kg`;
+    document.getElementById('result-range').textContent=route?`Route range: ${route.dose}`:'Select a route in Step 1 to see the dose range';
+  }
+  resultDiv.style.display='block';
 }
 
 function toggleExpand(abbr){expanded=expanded===abbr?null:abbr;renderRoutes();}
 function selectRoute(abbr){selectedRoute=selectedRoute===abbr?null:abbr;renderRoutes();renderBanner();calc();}
 function clearRoute(){selectedRoute=null;renderRoutes();renderBanner();calc();}
 function setSort(mode){sortMode=mode;document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');renderRoutes();}
-function setUnit(u){weightUnit=u;document.getElementById('btn-lbs').style.cssText+=weightUnit==='lbs'?';background:#434343;color:white':';background:white;color:#666';document.getElementById('btn-kg').style.cssText+=weightUnit==='kg'?';background:#434343;color:white':';background:white;color:#666';document.getElementById('unit-label').textContent=u;document.getElementById('weight-input').value='';document.getElementById('kg-equiv').textContent='';document.getElementById('result').style.display='none';}
+function setUnit(u){weightUnit=u;document.getElementById('btn-lbs').style.cssText=weightUnit==='lbs'?'padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:#434343;color:white':'padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:white;color:#666';document.getElementById('btn-kg').style.cssText=weightUnit==='kg'?'padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:#434343;color:white':'padding:9px 22px;border:none;font-family:inherit;font-size:17px;cursor:pointer;font-weight:600;background:white;color:#666';document.getElementById('unit-label').textContent=u;document.getElementById('weight-input').value='';document.getElementById('kg-equiv').textContent='';document.getElementById('result').style.display='none';}
 
 renderRoutes();
 renderParams();
