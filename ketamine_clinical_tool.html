@@ -153,15 +153,15 @@ const ROUTES=[
    clinNote:'Gold standard for anesthesia and chronic pain infusions. Not practical for retreat or at-home KAP models.',
    dirs:['Administered by medical provider only — IV line placed in arm or hand','Effects begin within seconds — be reclined before infusion starts','No solid food for 6 hours before your session (ASA NPO guidelines)','No liquids 2 hours before — clear fluids are fine up until then','Blood pressure before, at 20–30 min, and after','No driving for 24 hours — arrange transport home before your session','Remain in clinic until your provider clears you to leave']},
   {abbr:'IM',name:'Intramuscular (IM)',color:'#8fa67a',onset:'3–5 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~93%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
-   dose:'Starting 0.5 mg/kg (approx 25–50mg avg adult). Standard 0.5–1.5 mg/kg (75–150mg). Mean in KAP programs ~100mg.',
+   dose:'Weight-based. Low: 0.5 mg/kg (~25–50mg). Moderate: 0.5–1.0 mg/kg (~50–75mg). High: 1.0–1.5 mg/kg (~75–150mg). Mean in KAP programs ~100mg.',
    pros:['Very high bioavailability (~93%)','No IV line needed','Fast onset','Bypasses first-pass metabolism','Most common psychiatric KAP format'],
    cons:['Injection required','Cannot adjust dose mid-session','Clinic or provider presence needed','Possible injection site soreness'],
    blNote:'No first-pass effect. Lower urinary metabolite burden than sublingual or oral. Risk tied primarily to dose and frequency rather than route.',
    liNote:'No first-pass metabolism. Drug enters systemic circulation directly from muscle tissue. Safe for most clients with mild to moderate liver concerns.',
    clinNote:"Most common format for in-person KAP and retreat sessions. Mara's preferred route for retreat use. One approach: give 75% in one arm, wait, offer the remaining 25% in the other arm so the client can choose their own depth.",
    dirs:['Administered by a medical provider — you do not inject yourself','Injection goes into a large muscle — upper arm, thigh, or buttock','No solid food for 6 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','Have your nest ready beforehand — blanket, eyeshades, music','Lie down before onset — effects begin in 3–5 minutes','Cannot adjust the dose once injected — share any anxieties beforehand','Blood pressure before, at 20–30 minutes, and after','No driving for 24 hours — arrange transport home before your session']},
-  {abbr:'SQ',name:'Subcutaneous (SubQ)',color:'#7aaa8f',onset:'10–20 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~90–95%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
-   dose:'Starting 0.5 mg/kg (approx 25–50mg avg adult). Standard 0.5–1.5 mg/kg (75–150mg). As low as 0.1 mg/kg shown effective for depression.',
+  {abbr:'SQ',name:'Subcutaneous (SQ)',color:'#7aaa8f',onset:'10–20 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~90–95%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
+   dose:'Weight-based. Low: 0.5 mg/kg (~25–50mg). Moderate: 0.5–1.0 mg/kg (~50–75mg). High: 1.0–1.5 mg/kg (~75–150mg). As low as 0.1 mg/kg shown effective for depression. Mean in KAP programs ~100mg.',
    pros:['Near-identical bioavailability to IM (~90–95%)','No IV line needed','Less painful than IM for many clients','Gentler slower onset','Possible self-administration with training','Good for maintenance'],
    cons:['Injection still required','Slower onset than IM','Less clinical data than IV or IM','Possible local skin irritation','Requires training for self-administration'],
    blNote:'No first-pass metabolism. Metabolite profile similar to IM. Bladder risk tied to dose and frequency rather than route.',
@@ -177,7 +177,7 @@ const ROUTES=[
    clinNote:'Compounded racemic intranasal uses empirical dosing — the weight-based calculator does not apply. Spray math at 100mg/ml concentration: each spray delivers 0.1ml = 10mg ketamine, so 10 sprays = 1ml = 100mg. Low dose: 20–50mg (2–5 sprays). Moderate dose: 50–100mg (5–10 sprays). High dose: 100–150mg (10–15 sprays). Alternate nostrils with each spray and pause between groups of 4–5 sprays to allow absorption before continuing. Note: the unabsorbed portion drains to the throat — instruct client to try not to swallow it.',
    dirs:['No solid food for 2 hours before your session','No liquids 30 minutes before — clear fluids are fine up until then','Blow nose gently 10–15 minutes before dosing','Sit upright — do not tilt head back too far','Insert tip just inside one nostril, press pump once while breathing in gently','Alternate nostrils with each spray','Do not blow nose or sniff hard for 5 minutes after each spray','Try not to swallow any post-nasal drip — spit if needed','If congested, absorption will be reduced — let your provider know','Have your nest ready — effects begin in 5–15 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
   {abbr:'RDT',name:'Rapid Dissolve Tablet (RDT)',color:'#b8a090',onset:'10–20 min',duration:'45–90 min',dur:67,bio:24,bioLabel:'15–30%',bl:4,blLabel:'MOD–HIGH',li:4,liLabel:'MOD–HIGH',
-   dose:'Starting 100–150mg. Standard 100–300mg. Range up to 400mg. Compounded in 50mg and 100mg units. Empirical dosing.',
+   dose:'Empirical. Low: 50–100mg. Moderate: 150–300mg. High: 300–500mg. Mean in KAP programs ~277mg.',
    pros:['Dissolves in 1–3 minutes — faster onset than troche','Full dose presented to mucosa quickly','Shorter hold time','Won\'t melt in transport','Compounded in 50mg and 100mg doses'],
    cons:['Strong taste — place under tongue NOT on top','Faster saliva accumulation increases swallowing risk','Many clients never told not to swallow — must instruct explicitly','Partial first-pass if saliva swallowed','Variable bioavailability (15–30%)'],
    blNote:'If saliva is not swallowed, first-pass is minimized. Because it dissolves faster than a troche, saliva accumulates faster — increasing swallowing risk. Comparable bladder risk to troches when used correctly.',
@@ -185,7 +185,7 @@ const ROUTES=[
    clinNote:'Developed by the Ketamine Training Center to deliver the full dose to buccal mucosa in 1–2 minutes rather than 5+. Uses empirical dosing — the weight-based calculator does not apply. Use the 100–400mg empirical range as your starting point.',
    dirs:['No solid food for 2–4 hours before your session','No liquids 30–60 minutes before — clear fluids OK until then','Place tablet UNDER tongue or between cheek and gum — NOT on top of tongue','Dissolves in 1–3 minutes — much faster than a troche','Hold the liquid in place — DO NOT SWALLOW','Spit accumulated saliva throughout — swallowing causes first-pass liver and bladder exposure','Hold 8–15 minutes then spit out any residue','Lie down — effects begin in 10–20 minutes','Blood pressure before and at 20–30 min','No driving for 24 hours — not until after a full night of sleep']},
   {abbr:'SL',name:'Sublingual Lozenge / Troche',color:'#c4a882',onset:'15–30 min',duration:'45–90 min',dur:67,bio:30,bioLabel:'24–30%',bl:4,blLabel:'MOD–HIGH',li:4,liLabel:'MOD–HIGH',
-   dose:'Starting 150–200mg. Standard 200–350mg. Range up to 500mg. Mean in KAP programs ~277mg. Empirical dosing.',
+   dose:'Empirical. Low: 50–100mg. Moderate: 150–300mg. High: 300–500mg. Mean in KAP programs ~277mg.',
    pros:['No needles or injection','Home-use potential','Smooth gradual onset curve','Waxy texture stays in place under tongue','Widely available through compounding pharmacies'],
    cons:['Slow dissolution (5–15 min) — long hold time','Partial first-pass if saliva is swallowed','Lower bioavailability than injection routes','Can melt in transport','Variable absorption'],
    blNote:'Partial first-pass metabolism if saliva is swallowed. Higher urinary metabolite concentrations than intranasal or IM/IV.',
@@ -236,11 +236,36 @@ function renderRoutes(){
     div.style.borderColor=sel?r.color:open?r.color+'80':'#e8e5e0';
     if(open)div.style.boxShadow='0 4px 16px rgba(0,0,0,0.09)';
 
+    const tierRoutes=['IM','SQ','RDT','SL'];
+    const tierDisplay={
+      'IM':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Weight-based — 0.5 mg/kg starting</b></div>
+        <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 0.5 mg/kg (~25–50mg avg adult)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 0.5–1.0 mg/kg (~50–75mg)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 1.0–1.5 mg/kg (~75–150mg)</div>
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg</div>`,
+      'SQ':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Weight-based — 0.5 mg/kg starting</b></div>
+        <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 0.5 mg/kg (~25–50mg avg adult)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 0.5–1.0 mg/kg (~50–75mg)</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 1.0–1.5 mg/kg (~75–150mg)</div>
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg · As low as 0.1 mg/kg effective for depression</div>`,
+      'RDT':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Empirical dosing</b></div>
+        <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 50–100mg</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 150–300mg</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 300–500mg</div>
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~277mg</div>`,
+      'SL':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Empirical dosing</b></div>
+        <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 50–100mg</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 150–300mg</div>
+        <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 300–500mg</div>
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~277mg</div>`
+    };
     const doseDisplay=r.abbr==='IN'
       ?`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Compounded racemic — 100mg/ml, 0.1ml/spray = 10mg</b></div>
         <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 20–50mg (2–5 sprays)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 50–100mg (5–10 sprays)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 100–150mg (10–15 sprays)</div>`
+      :tierRoutes.includes(r.abbr)
+      ?tierDisplay[r.abbr]
       :`<b style="color:#555">Dose:</b> <span style="color:#888">${r.dose}</span>`;
 
     div.innerHTML=`
