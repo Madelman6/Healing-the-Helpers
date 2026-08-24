@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Antidepressants, Healing the Helpers</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:#F1DCAC; --gold-dark:#c9a96e; --grey:#434343;
+    --black:#111111; --white:#FFFFFF; --cream:#F5F0E8;
+    --card-bg:#FDFAF4; --section-bg:#EDE8DE;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Montserrat',sans-serif; background:var(--cream); color:var(--black); max-width:100%; }
+
+  .header { background:var(--black); padding:6px 16px 22px; text-align:center; }
+  .header-eyebrow { font-size:10px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .header-title { font-size:26px; font-weight:900; color:var(--white); line-height:1.2; margin-bottom:8px; }
+  .header-title span { color:var(--gold); }
+  .header-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.7; max-width:480px; margin:0 auto; }
+
+  .divider { height:3px; background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark)); }
+  .gold-bar { background:var(--gold); padding:13px 16px; text-align:center; font-size:14px; font-weight:600; color:var(--black); line-height:1.6; }
+  .grey-bar { height:6px; background:var(--grey); }
+
+  .notice-box {
+    background:#2e2e2e; border-left:4px solid var(--gold-dark);
+    padding:16px 18px; margin:0;
+  }
+  .notice-label { font-size:10px; font-weight:800; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .notice-text { font-size:14px; color:rgba(255,255,255,0.85); line-height:1.8; }
+
+  .section-header {
+    background:linear-gradient(90deg,#1a1a1a,var(--grey));
+    color:var(--white); font-size:11px; font-weight:800;
+    letter-spacing:0.25em; text-transform:uppercase;
+    padding:12px 16px; margin-top:4px;
+  }
+
+  .body-text { font-size:15px; color:var(--grey); line-height:1.85; padding:18px 16px; background:var(--section-bg); }
+
+  .dark-box { background:#2e2e2e; padding:22px 18px; margin:0; }
+  .dark-box-title { font-size:11px; font-weight:800; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .dark-box-text { font-size:15px; color:rgba(255,255,255,0.85); line-height:1.9; }
+  .dark-box-text strong { color:var(--gold); }
+
+  .card {
+    background:var(--card-bg); margin:0 12px 12px;
+    border-radius:10px; border-left:4px solid var(--grey);
+    box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:16px;
+  }
+  .card.gold { border-left-color:var(--gold-dark); }
+  .card-title { font-size:15px; font-weight:800; color:var(--black); margin-bottom:8px; }
+  .card-text { font-size:14px; color:var(--grey); line-height:1.8; }
+
+  .stat-row {
+    display:flex; gap:10px; padding:14px 12px; background:var(--section-bg); flex-wrap:wrap;
+  }
+  .stat-box {
+    flex:1; min-width:120px; background:var(--card-bg);
+    border-radius:10px; padding:14px 12px; text-align:center;
+    box-shadow:0 1px 5px rgba(0,0,0,0.07);
+    border-top:3px solid var(--grey);
+  }
+  .stat-box.gold { border-top-color:var(--gold-dark); }
+  .stat-num { font-size:28px; font-weight:900; color:var(--black); line-height:1; margin-bottom:6px; }
+  .stat-num.gold { color:var(--gold-dark); }
+  .stat-label { font-size:11px; font-weight:600; color:var(--grey); line-height:1.5; }
+
+  .taper-step {
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--card-bg); margin:0 12px 10px;
+    border-radius:10px; padding:14px 16px;
+    box-shadow:0 1px 6px rgba(0,0,0,0.07);
+  }
+  .step-num {
+    width:34px; height:34px; border-radius:50%;
+    background:var(--grey); color:var(--white);
+    font-size:14px; font-weight:900;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .step-content { flex:1; }
+  .step-title { font-size:14px; font-weight:800; color:var(--black); margin-bottom:4px; }
+  .step-text { font-size:13px; color:var(--grey); line-height:1.75; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:14px 12px; background:var(--section-bg); }
+  .mini-card {
+    background:var(--card-bg); border-radius:8px;
+    border-top:3px solid var(--grey); padding:12px 14px;
+    box-shadow:0 1px 5px rgba(0,0,0,0.07);
+  }
+  .mini-title { font-size:13px; font-weight:800; color:var(--black); margin-bottom:5px; }
+  .mini-text { font-size:12px; color:var(--grey); line-height:1.75; }
+
+  .hth-box {
+    background:var(--black); padding:24px 16px; text-align:center;
+  }
+  .hth-title { font-size:13px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .hth-text { font-size:15px; color:rgba(255,255,255,0.85); line-height:1.85; max-width:480px; margin:0 auto 18px; }
+  .hth-btn {
+    display:inline-block; background:var(--gold); color:var(--black);
+    font-size:13px; font-weight:800; letter-spacing:0.1em;
+    text-transform:uppercase; padding:12px 28px; border-radius:4px; text-decoration:none;
+  }
+
+  @media screen and (max-width:600px) {
+    .header-title { font-size:22px !important; }
+    .two-col { grid-template-columns:1fr !important; }
+    .stat-row { flex-direction:column; }
+    .body-text { font-size:18px !important; }
+    .card-title { font-size:18px !important; }
+    .card-text { font-size:17px !important; }
+    .mini-title { font-size:17px !important; }
+    .mini-text { font-size:16px !important; }
+    .dark-box-text { font-size:18px !important; }
+    .step-title { font-size:17px !important; }
+    .step-text { font-size:16px !important; }
+    .stat-num { font-size:32px !important; }
+    .stat-label { font-size:14px !important; }
+    .notice-text { font-size:16px !important; }
+    .hth-text { font-size:18px !important; }
+    .gold-bar { font-size:17px !important; }
+    .section-header { font-size:13px !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9AAAAPoCAYAAACGXmWqAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAA3tklEQVR4nO3d2XbjvLGAUepf/f6vrFy0HbttDRwwVBX2vjorJ3FTHCCBn0BtGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsLD/AcV6jVrVuGSlAAAAAElFTkSuQmCC" alt="Healing the Helpers" style="width:320px;max-width:90%;height:auto;display:block;margin:0 auto 14px;">
+  <div style="width:100%;height:4px;background:#434343;margin-bottom:14px;"></div>
+  <div class="header-eyebrow">Healing the Helpers</div>
+  <h1 class="header-title">Understanding <span>Antidepressants</span></h1>
+  <p class="header-sub">What they do, what they don't do, and what to know if you are considering coming off.</p>
+</div>
+<div class="divider"></div>
+<div class="gold-bar">This is educational information, not medical advice. Please make all medication decisions with your prescriber.</div>
+<div class="grey-bar"></div>
+
+<!-- NOTICE BOX -->
+<div class="notice-box">
+  <div class="notice-label">Important Notice</div>
+  <div class="notice-text">This handout does not recommend stopping, reducing, or changing your antidepressant. That decision belongs to you and your prescribing provider. What it offers is honest, accurate information so that whatever you decide, you can decide it clearly and with good support around you.</div>
+</div>
+
+<!-- WHAT THEY DO -->
+<div class="section-header">What Antidepressants Actually Do</div>
+<div class="body-text">
+  Antidepressants work primarily by narrowing the range of what you feel. In a crisis, that is exactly what is needed. The floor comes up. The worst of it becomes survivable. They are genuinely life-saving for the people who need them in that moment. But the narrowing is not selective. The floor comes up and the ceiling comes down. Which is why the most common thing people say after years on them is not that they are still depressed. It is that things have less sparkle. That they could not cry at a funeral. That sex stopped meaning much. That they feel fine but also a little flat, like the volume on life has been turned down a few notches.
+</div>
+
+<!-- THE NUMBERS -->
+<div class="section-header">What the Research Actually Shows</div>
+<div class="stat-row">
+  <div class="stat-box gold">
+    <div class="stat-num gold">~30%</div>
+    <div class="stat-label">of people achieve full remission on their first antidepressant</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num">~50%</div>
+    <div class="stat-label">never achieve full remission on medication alone</div>
+  </div>
+  <div class="stat-box">
+    <div class="stat-num">1 in 3</div>
+    <div class="stat-label">people who try antidepressants try more than one before finding one that helps</div>
+  </div>
+</div>
+<div class="body-text" style="padding-top:10px;">
+  These numbers come from the landmark STAR*D trial, the largest real-world antidepressant study ever conducted. They do not mean antidepressants do not work. They mean they work for some people, partially for others, and not at all for a meaningful percentage. They were originally designed as a short-term bridge, not a lifelong prescription, though for some people long-term use is genuinely appropriate and necessary.
+</div>
+
+<!-- DARK BOX: WHAT THEY DON'T DO -->
+<div class="dark-box">
+  <div class="dark-box-title">What Antidepressants Do Not Do</div>
+  <div class="dark-box-text">They do not resolve the underlying causes of depression or anxiety. They do not process trauma. They do not teach the nervous system new patterns or build new neural pathways. They create a window of stability in which that work becomes possible, but the window has to be used. <strong>The medicine is not the healing. It is the breathing room to begin healing.</strong></div>
+</div>
+
+<!-- COMING OFF -->
+<div class="section-header">What Happens When You Come Off</div>
+<div class="body-text">
+  When you stop or taper an antidepressant, the emotional range that was compressed begins to open back up. All of it. The good and the difficult, arriving together in a nervous system that has not handled that much signal in years. To the person living it, that flood can feel exactly like the depression coming back. Around week three, many people decide it has, and go back on.
+</div>
+
+<div class="dark-box" style="margin-top:4px;">
+  <div class="dark-box-title">Discontinuation vs. Relapse — This Distinction Matters</div>
+  <div class="dark-box-text">Sometimes the return of symptoms after stopping is genuine relapse, and going back on the medication is the right call. Sometimes it is discontinuation syndrome, the nervous system recalibrating to a wider emotional bandwidth, and it passes. <strong>Nobody can make that call alone at 2am.</strong> It is a clinical judgment that requires your prescriber, ideally one who knows your history well. This is exactly why having a strong support system before you taper matters so much.</div>
+</div>
+
+<!-- COMMON DISCONTINUATION SYMPTOMS -->
+<div class="section-header">Common Discontinuation Symptoms</div>
+<div class="two-col">
+  <div class="mini-card">
+    <div class="mini-title">Emotional Flooding</div>
+    <div class="mini-text">Feelings that were muted returning suddenly and intensely. Crying more easily, feeling more rawly yourself.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Brain Zaps</div>
+    <div class="mini-text">Brief electrical sensations in the head. Strange and disorienting, but not dangerous. More common with SSRIs and SNRIs.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Irritability or Anxiety</div>
+    <div class="mini-text">The nervous system recalibrating. Often peaks in weeks two and three and then gradually settles.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Sleep Disturbance</div>
+    <div class="mini-text">Vivid dreams, trouble falling asleep, or waking in the night as the brain adjusts its chemistry.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Flu-Like Feeling</div>
+    <div class="mini-text">Fatigue, nausea, or muscle aches. Common in the first one to two weeks of tapering.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Dizziness or Vertigo</div>
+    <div class="mini-text">Particularly with faster tapers. Moving slowly, staying hydrated, and resting helps.</div>
+  </div>
+</div>
+
+<!-- TAPER PRINCIPLES -->
+<div class="section-header">General Principles of Tapering Safely</div>
+<div style="padding:14px 12px 4px; background:var(--section-bg);">
+  <div class="taper-step">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <div class="step-title">Never stop abruptly</div>
+      <div class="step-text">Stopping an antidepressant suddenly, particularly an SSRI or SNRI, can cause severe discontinuation syndrome. Always taper gradually under medical supervision. The longer you have been on the medication, the slower the taper typically needs to be.</div>
+    </div>
+  </div>
+  <div class="taper-step">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <div class="step-title">Go slower than you think you need to</div>
+      <div class="step-text">Most clinical taper schedules are still faster than what many people need. A 10% reduction every four weeks is a well-supported approach for people who have been on higher doses or for longer periods. Your prescriber can help design the right schedule for your specific medication and history.</div>
+    </div>
+  </div>
+  <div class="taper-step">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <div class="step-title">Be more resourced, not less, during the taper</div>
+      <div class="step-text">This is not the time to reduce therapy or support. It is the time to increase it. The first several months after coming off often require more active support, not less, as the nervous system finds its new baseline. Plan for this before you start, not after.</div>
+    </div>
+  </div>
+  <div class="taper-step">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <div class="step-title">Track your symptoms in writing</div>
+      <div class="step-text">Keep a simple daily log of how you are feeling. This gives you and your prescriber real data to work with, and helps you distinguish a temporary adjustment from something that genuinely needs attention.</div>
+    </div>
+  </div>
+  <div class="taper-step">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <div class="step-title">Do not make the relapse call alone</div>
+      <div class="step-text">If things feel very hard at week two or three, contact your prescriber before deciding to go back on. There is a meaningful difference between discontinuation symptoms and genuine relapse, and that distinction matters for what comes next.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ANTIDEPRESSANTS AND PSYCHEDELIC HEALING -->
+<div class="section-header">Antidepressants and Psychedelic-Assisted Healing</div>
+<div class="body-text">
+  This is an area where honest, nuanced conversation matters more than blanket rules. Here is what the current clinical picture looks like.
+</div>
+<div style="padding:0 12px 14px; background:var(--section-bg);">
+  <div class="card gold" style="margin-bottom:10px; margin-top:10px;">
+    <div class="card-title">Psilocybin and SSRIs</div>
+    <div class="card-text">SSRIs and SNRIs work primarily on serotonin receptors, which is the same system psilocybin engages. Taking them together can blunt the effect of psilocybin significantly, and in rare cases involving high doses, serotonin syndrome is a genuine concern. Most clinical protocols ask participants to taper off SSRIs and SNRIs before beginning psilocybin-assisted work. This is a gray zone that requires a clinical decision, not one to make alone.</div>
+  </div>
+  <div class="card gold" style="margin-bottom:10px;">
+    <div class="card-title">MDMA and SSRIs</div>
+    <div class="card-text">The concern here is more significant. MDMA and SSRIs both act strongly on the serotonin system and the combination carries a real serotonin syndrome risk. MAPS clinical protocols require discontinuation of SSRIs before MDMA-assisted therapy. This is not a gray zone. Please discuss this directly with your prescriber and your therapeutic team.</div>
+  </div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-title">Ketamine and Antidepressants</div>
+    <div class="card-text">Ketamine works primarily on NMDA glutamate receptors rather than serotonin receptors. This gives it a meaningfully different risk profile. Serotonin syndrome from ketamine combined with an SSRI is not a significant clinical concern in the way it is with psilocybin or MDMA. Many people receive ketamine-assisted therapy while still on antidepressants, and it is one of the reasons ketamine is often considered an accessible entry point for people who are not yet ready to taper. This should still be discussed with your prescriber, but the conversation is different from the one about psilocybin.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">The Bigger Picture</div>
+    <div class="card-text">Psychedelic-assisted healing asks the nervous system to open up, to feel more, to process what has been stored. Antidepressants narrow that range. There is a real tension between the two goals, and it is worth sitting with honestly. For many people, tapering thoughtfully and intentionally before beginning psychedelic work is part of the healing arc. That arc just needs good support around it.</div>
+  </div>
+</div>
+
+<!-- WHAT HELPS DURING AND AFTER -->
+<div class="section-header">What Can Help During and After Coming Off</div>
+<div class="two-col">
+  <div class="mini-card">
+    <div class="mini-title">Somatic Therapy</div>
+    <div class="mini-text">The body needs support as the emotional range reopens. Somatic work helps the nervous system process what arrives.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Regular Movement</div>
+    <div class="mini-text">Exercise is one of the most evidence-based interventions for depression and anxiety, and free of side effects.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Sleep Hygiene</div>
+    <div class="mini-text">Sleep is when the nervous system regulates. Protecting it during a taper is not optional, it is foundational.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Nutrition and Gut Health</div>
+    <div class="mini-text">The gut produces most of the body's serotonin. Supporting it during a taper supports mood stability.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Therapy and Integration Support</div>
+    <div class="mini-text">A skilled therapist or integration guide who understands the discontinuation process is invaluable during this period.</div>
+  </div>
+  <div class="mini-card">
+    <div class="mini-title">Community and Connection</div>
+    <div class="mini-text">Isolation amplifies every symptom. Staying connected to people who understand what you are going through matters enormously.</div>
+  </div>
+</div>
+
+<!-- HTH SUPPORT -->
+<div class="hth-box">
+  <div class="hth-title">Healing the Helpers Can Help</div>
+  <div class="hth-text">If you are considering tapering, are in the middle of it, or are navigating the aftermath, you do not have to figure this out alone. Healing the Helpers offers ketamine-assisted healing, integration support, and nervous system-informed care designed for people who are ready to feel more, not less. We can be part of your support system before, during, and after this transition. Start with a conversation.</div>
+  <a href="https://healingthehelpers.com" target="_blank" class="hth-btn">Connect with Healing the Helpers</a>
+</div>
+
+<div style="width:100%;height:6px;background:var(--grey);"></div>
+<div style="text-align:center;padding:20px 10px 22px;background:var(--black);">
+  <a href="https://healingthehelpers.com" style="font-family:Montserrat,sans-serif;font-size:16px;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;">Healing the Helpers</a>
+</div>
+
+</body>
+</html>

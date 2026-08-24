@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When the Journey Gets Difficult, Healing the Helpers</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold:#F1DCAC; --gold-dark:#c9a96e; --grey:#434343;
+    --black:#111111; --white:#FFFFFF; --cream:#F5F0E8;
+    --card-bg:#FDFAF4; --section-bg:#EDE8DE;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Montserrat',sans-serif; background:var(--cream); color:var(--black); max-width:100%; }
+
+  .header { background:var(--black); padding:6px 16px 22px; text-align:center; }
+  .header-eyebrow { font-size:10px; font-weight:700; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .header-title { font-size:26px; font-weight:900; color:var(--white); line-height:1.2; margin-bottom:8px; }
+  .header-title span { color:var(--gold); }
+  .header-sub { font-size:13px; color:rgba(255,255,255,0.6); line-height:1.7; max-width:480px; margin:0 auto; }
+  .divider { height:3px; background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-dark)); }
+  .gold-bar { background:var(--gold); padding:13px 16px; text-align:center; font-size:14px; font-weight:600; color:var(--black); line-height:1.6; }
+  .grey-bar { height:6px; background:var(--grey); }
+
+  .section-header {
+    background:linear-gradient(90deg,#1a1a1a,var(--grey));
+    color:var(--white); font-size:11px; font-weight:800;
+    letter-spacing:0.25em; text-transform:uppercase;
+    padding:12px 16px;
+  }
+
+  .body-text { font-size:15px; color:var(--grey); line-height:1.85; padding:18px 16px; background:var(--section-bg); }
+
+  .card {
+    background:var(--card-bg); margin:0 12px 12px;
+    border-radius:10px; border-left:4px solid var(--grey);
+    box-shadow:0 2px 8px rgba(0,0,0,0.07); padding:16px;
+  }
+  .card.gold { border-left-color:var(--gold-dark); }
+  .card-title { font-size:15px; font-weight:800; color:var(--black); margin-bottom:8px; }
+  .card-text { font-size:14px; color:var(--grey); line-height:1.8; }
+
+  .dark-box { background:#2e2e2e; margin:0; padding:22px 16px; }
+  .dark-box-title { font-size:11px; font-weight:800; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+  .dark-box-text { font-size:15px; color:rgba(255,255,255,0.85); line-height:1.85; }
+  .dark-box-text em { color:var(--gold); font-style:normal; font-weight:700; }
+
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:10px; padding:14px 12px; background:var(--section-bg); }
+
+  .mini-card {
+    background:var(--card-bg); border-radius:8px;
+    border-top:3px solid var(--grey); padding:12px 14px;
+    box-shadow:0 1px 5px rgba(0,0,0,0.07);
+  }
+  .mini-card.gold { border-top-color:var(--gold-dark); }
+  .mini-title { font-size:13px; font-weight:800; color:var(--black); margin-bottom:5px; }
+  .mini-text { font-size:12px; color:var(--grey); line-height:1.75; }
+
+  .resource-card {
+    background:var(--card-bg); border-radius:10px; padding:14px 16px;
+    margin:0 12px 12px; box-shadow:0 2px 8px rgba(0,0,0,0.07);
+    border-left:4px solid var(--gold-dark);
+  }
+  .resource-name { font-size:15px; font-weight:800; color:var(--black); margin-bottom:4px; }
+  .resource-detail { font-size:13px; color:var(--grey); line-height:1.7; margin-bottom:2px; }
+  a { color:var(--gold-dark); text-decoration:none; font-weight:700; }
+
+  .quote-block {
+    background:var(--black); margin:0; padding:24px 20px;
+    border-left:5px solid var(--gold-dark);
+    text-align:left;
+  }
+  .quote-text { font-size:16px; font-weight:300; color:var(--white); line-height:1.9; font-style:italic; margin-bottom:10px; }
+  .quote-attr { font-size:11px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); }
+
+  .hero-journey {
+    background:var(--section-bg); padding:18px 12px;
+    display:flex; align-items:center; justify-content:center;
+    gap:0; flex-wrap:nowrap; overflow-x:auto;
+  }
+  .journey-step {
+    flex:1; min-width:60px; text-align:center; padding:10px 6px;
+  }
+  .journey-circle {
+    width:44px; height:44px; border-radius:50%;
+    background:var(--grey); color:var(--white);
+    font-size:10px; font-weight:800; display:flex;
+    align-items:center; justify-content:center;
+    margin:0 auto 8px; text-align:center; line-height:1.2;
+    letter-spacing:0;
+  }
+  .journey-circle.gold { background:var(--gold-dark); }
+  .journey-circle.dark { background:#1a1a1a; }
+  .journey-label { font-size:9px; font-weight:700; color:var(--grey); text-transform:uppercase; letter-spacing:0.08em; line-height:1.4; }
+  .journey-arrow { font-size:18px; color:var(--gold-dark); padding:0 2px; align-self:center; flex-shrink:0; }
+
+  .for-helpers-bar {
+    background:var(--grey); padding:10px 16px;
+    font-size:10px; font-weight:800; letter-spacing:0.2em;
+    text-transform:uppercase; color:var(--gold); text-align:center;
+  }
+
+  .video-card {
+    background:var(--black); padding:22px 16px; text-align:center;
+  }
+  .video-title-label { font-size:10px; font-weight:800; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:10px; }
+  .video-name { font-size:16px; font-weight:800; color:var(--white); margin-bottom:6px; line-height:1.4; }
+  .video-desc { font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:16px; max-width:460px; margin-left:auto; margin-right:auto; }
+  .video-btn {
+    display:inline-block; background:var(--gold); color:var(--black);
+    font-size:13px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase;
+    padding:12px 28px; border-radius:4px; text-decoration:none;
+  }
+
+  @media screen and (max-width:600px) {
+    .header-title { font-size:22px !important; }
+    .two-col { grid-template-columns:1fr !important; }
+    .body-text { font-size:18px !important; }
+    .card-title { font-size:18px !important; }
+    .card-text { font-size:17px !important; }
+    .mini-title { font-size:17px !important; }
+    .mini-text { font-size:16px !important; }
+    .dark-box-text { font-size:18px !important; }
+    .resource-name { font-size:19px !important; }
+    .resource-detail { font-size:17px !important; }
+    .video-name { font-size:19px !important; }
+    .video-desc { font-size:16px !important; margin-bottom:16px; }
+    .gold-bar { font-size:17px !important; }
+    .section-header { font-size:13px !important; }
+    .quote-text { font-size:18px !important; }
+    .journey-circle { width:52px; height:52px; font-size:11px; }
+    .journey-label { font-size:10px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB9AAAAPoCAYAAACGXmWqAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAA3tklEQVR4nO3d2XbjvLGAUepf/f6vrFy0HbttDRwwVBX2vjorJ3FTHCCBn0BtGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsLD/AcV6jVrVuGSlAAAAAElFTkSuQmCC" alt="Healing the Helpers" style="width:320px;max-width:90%;height:auto;display:block;margin:0 auto 14px;">
+  <div style="width:100%;height:4px;background:#434343;margin-bottom:14px;"></div>
+  <div class="header-eyebrow">Healing the Helpers</div>
+  <h1 class="header-title">When the Journey Gets <span>Difficult</span></h1>
+  <p class="header-sub">A guide for navigating challenging psychedelic experiences. Before, during, and after.</p>
+</div>
+<div class="divider"></div>
+<div class="gold-bar">Difficult does not mean wrong. Sometimes it means the medicine is working.</div>
+<div class="grey-bar"></div>
+
+<!-- INTRO -->
+<div class="body-text">
+  Not every psychedelic experience is peaceful. Some are uncomfortable, frightening, or emotionally overwhelming. This is more common than most people realize, and it does not mean something went wrong. Challenging experiences are often the ones that carry the most lasting insight. This guide is here to help you understand what might come up, how to move through it, and how to find support when you need it.
+</div>
+
+<!-- CAMPBELL / JUNG -->
+<div class="section-header" style="margin-top:4px;">The Descent Before the Rise</div>
+
+<div class="quote-block">
+  <div class="quote-text">"The cave you fear to enter holds the treasure you seek."</div>
+  <div class="quote-attr">Joseph Campbell</div>
+</div>
+
+<div class="body-text">
+  Every great story of transformation includes a descent. A dark passage through which the hero must travel before they can rise. Joseph Campbell called this the hero's journey. Carl Jung called the difficult material the shadow: the parts of ourselves we have pushed away, buried, or refused to look at. What the medicine often does is take us directly into that cave. It does not do this to harm us. It does this because that is where the healing is. The difficult experience is not a detour from the journey. In most cases, it is the journey.
+</div>
+
+<!-- HERO JOURNEY DIAGRAM -->
+<div style="background:var(--section-bg); padding:16px 12px 6px;">
+  <div style="font-size:10px; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:var(--grey); text-align:center; margin-bottom:14px;">The Hero's Journey Applied to Psychedelic Healing</div>
+  <div class="hero-journey">
+    <div class="journey-step">
+      <div class="journey-circle">Ordinary World</div>
+      <div class="journey-label">Life before the session</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="journey-circle">The Call</div>
+      <div class="journey-label">The decision to heal</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="journey-circle dark">The Cave</div>
+      <div class="journey-label">The difficult passage</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="journey-circle gold">The Gift</div>
+      <div class="journey-label">Insight and breakthrough</div>
+    </div>
+    <div class="journey-arrow">→</div>
+    <div class="journey-step">
+      <div class="journey-circle">The Return</div>
+      <div class="journey-label">Integration and new life</div>
+    </div>
+  </div>
+</div>
+
+<!-- DARK BOX: DIFFICULT IS NOT WRONG -->
+<div class="dark-box" style="margin-top:4px;">
+  <div class="dark-box-title">The Shadow Is Not the Enemy</div>
+  <div class="dark-box-text">Jung understood that the parts of ourselves we most resist are the ones with the most energy. And the most to teach us. What we call a bad trip is often the shadow making itself known. Not to overwhelm us. To be <em>witnessed</em>. The medicine creates a container rare enough in ordinary life that the deepest material finally feels safe enough to surface. Meeting it with curiosity, even when it is terrifying, is the practice. <em>That</em> is where the good work comes from.</div>
+</div>
+
+<!-- WHAT IT CAN LOOK LIKE -->
+<div class="section-header" style="margin-top:4px;">What a Challenging Experience Can Look Like</div>
+<div style="padding:14px 12px 4px; background:var(--section-bg);">
+  <div class="two-col" style="padding:0; background:transparent;">
+    <div class="mini-card">
+      <div class="mini-title">Fear or Panic</div>
+      <div class="mini-text">A sudden wave of anxiety, sometimes with no clear source. The body signals danger even when it is safe.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Ego Dissolution</div>
+      <div class="mini-text">The boundary between self and the world begins to blur. Can feel terrifying or profoundly freeing. Sometimes both.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Difficult Emotions</div>
+      <div class="mini-text">Grief, rage, shame, or old pain rising to the surface. The medicine often brings exactly what has been waiting to be seen.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Paranoia or Confusion</div>
+      <div class="mini-text">Thoughts may feel looping or distorted. A sense of being watched, misunderstood, or unable to find solid ground.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Physical Discomfort</div>
+      <div class="mini-text">Nausea, tension, or pressure. The body processing what the mind cannot yet hold in words.</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-title">Feeling Stuck</div>
+      <div class="mini-text">The sense it will never end, or that you are caught in a loop. Time distortion can make minutes feel like hours.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOR YOU DURING -->
+<div class="section-header" style="margin-top:4px;">If You Are in a Difficult Experience</div>
+<div style="padding:14px 12px 4px; background:var(--section-bg);">
+  <div class="card gold" style="margin-bottom:10px;">
+    <div class="card-title">Breathe First</div>
+    <div class="card-text">Slow, deep breaths signal safety to the nervous system. Even one long exhale can shift the internal weather. Return to your breath whenever the experience feels overwhelming.</div>
+  </div>
+  <div class="card gold" style="margin-bottom:10px;">
+    <div class="card-title">Surrender Rather Than Fight</div>
+    <div class="card-text">The more you resist, the more intense the experience becomes. Try to soften your grip on what you think should be happening. Say yes to what is arising, even if it is uncomfortable. You do not have to like it to allow it.</div>
+  </div>
+  <div class="card gold" style="margin-bottom:10px;">
+    <div class="card-title">Change Something Small</div>
+    <div class="card-text">Shift your physical position. Ask for the music to change. Open your eyes or close them. Move outside if possible. Small changes can create enough of a break in the pattern to find your footing.</div>
+  </div>
+  <div class="card gold" style="margin-bottom:10px;">
+    <div class="card-title">Tell Someone</div>
+    <div class="card-text">You do not have to navigate this alone. If you have a guide or support person, let them know what you are experiencing. Speaking it aloud, even in fragments, can reduce its power over you. You do not need to explain it. Just name it.</div>
+  </div>
+  <div class="card gold">
+    <div class="card-title">Remember. It Will Pass</div>
+    <div class="card-text">Every psychedelic experience has a beginning, a middle, and an end. What you are in right now is temporary, even when it does not feel that way. You have a body. You are in a safe place. This will move through you.</div>
+  </div>
+</div>
+
+<!-- FOR GUIDES -->
+<div class="for-helpers-bar">For guides and support people</div>
+<div style="padding:14px 12px 4px; background:var(--section-bg);">
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-title">Your Nervous System Is the Anchor</div>
+    <div class="card-text">The person in distress will take cues from your body, voice, and energy. Stay regulated. Slow your own breath. Your calm presence is one of the most powerful interventions available.</div>
+  </div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-title">Be With, Not Fix. The Zendo Approach</div>
+    <div class="card-text">The Zendo Project's four principles guide harm reduction in difficult experiences: a safe space, sitting not guiding, talking through rather than down from the experience, and the understanding that the difficult experience can be a healing one. Presence is the medicine. You do not need the right words.</div>
+  </div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="card-title">Ground Over Reassure</div>
+    <div class="card-text">Lengthy reassurances can amplify panic. Short, grounding statements work better. "I am right here." "You are safe." "This will pass." "I am not going anywhere." Simple. True. Repeated as needed.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">Know When to Reach Out</div>
+    <div class="card-text">Difficult is not an emergency. But if someone is at risk of harming themselves or others, or if you are out of your depth, call for support. The Fireside Project provides real-time peer support for exactly this. Call 911 if there is immediate physical danger.</div>
+  </div>
+</div>
+
+<!-- INTEGRATION -->
+<div class="section-header" style="margin-top:4px;">After. Integration Is Where It Lands</div>
+<div class="body-text">
+  How you tend to yourself in the days after matters as much as the experience itself. Give yourself time before reaching for conclusions about what it meant. The meaning often comes slowly, in layers. Rest. Eat grounding foods. Spend time in nature. Write without editing. Talk to your guide, therapist, or integration support. The hero does not return from the cave the same day they entered it. Challenging experiences often yield the most durable healing. But they ask something of you in return. Let yourself be held in the aftermath.
+</div>
+
+<!-- RESOURCES -->
+<div class="section-header" style="margin-top:4px;">Support Resources</div>
+<div style="padding:14px 12px 4px;">
+  <div class="resource-card">
+    <div class="resource-name">Fireside Project</div>
+    <div class="resource-detail">Free, confidential peer support during or after a difficult psychedelic experience</div>
+    <div class="resource-detail">Call or text <strong>62-FIRESIDE</strong> · Available 24 hours a day, 7 days a week</div>
+    <div class="resource-detail"><a href="https://firesideproject.org">firesideproject.org</a></div>
+  </div>
+  <div class="resource-card">
+    <div class="resource-name">Zendo Project</div>
+    <div class="resource-detail">Harm reduction training and peer support for difficult psychedelic experiences. Their four principles are the gold standard for guides and support people</div>
+    <div class="resource-detail"><a href="https://zendoproject.org">zendoproject.org</a></div>
+  </div>
+  <div class="resource-card">
+    <div class="resource-name">988 Suicide and Crisis Lifeline</div>
+    <div class="resource-detail">If you are in a mental health crisis beyond the psychedelic experience itself</div>
+    <div class="resource-detail">Call or text <strong>988</strong> · Available 24 hours a day, 7 days a week</div>
+  </div>
+</div>
+
+<!-- VIDEO -->
+<div style="background:var(--section-bg);border-left:4px solid var(--gold-dark);border-radius:6px;padding:14px 16px;margin:0 0 0 0;">
+  <p style="font-family:Montserrat,sans-serif;font-size:13px;color:var(--grey);line-height:1.8;font-style:italic;">I am sharing this video because its message is genuinely valuable and well-said. While I cannot vet every creator's full body of work, I have personally watched and believe in this specific video. Sharing it is not a blanket endorsement of the creator's other content. It is simply a resource that resonated deeply and that I believe will serve you.</p>
+</div>
+
+<div class="video-card">
+  <div class="video-title-label">Recommended Viewing</div>
+  <div class="video-name">10 Challenging Psychedelic Experiences Explained by a Doctor</div>
+  <div class="video-desc">Dr. Tracy Kim Townsend walks through the 10 most common challenging experiences on a psilocybin journey. Why they happen from both a neuroscience and clinical perspective, and what to do with each one.</div>
+  <a href="https://www.youtube.com/watch?v=Vo-ZDp-uM8s" target="_blank" class="video-btn">▶ Watch on YouTube</a>
+</div>
+
+<div style="width:100%;height:6px;background:var(--grey);"></div>
+<div style="text-align:center;padding:20px 10px 22px;background:var(--black);">
+  <a href="https://healingthehelpers.com" style="font-family:Montserrat,sans-serif;font-size:16px;font-weight:900;color:var(--gold);text-decoration:none;letter-spacing:0.15em;text-transform:uppercase;">Healing the Helpers</a>
+</div>
+
+</body>
+</html>
