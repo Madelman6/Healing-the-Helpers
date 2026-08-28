@@ -158,7 +158,7 @@ const ROUTES=[
    cons:['Injection required','Cannot adjust dose mid-session','Clinic or provider presence needed','Possible injection site soreness'],
    blNote:'No first-pass effect. Lower urinary metabolite burden than sublingual or oral. Risk tied primarily to dose and frequency rather than route.',
    liNote:'No first-pass metabolism. Drug enters systemic circulation directly from muscle tissue. Safe for most clients with mild to moderate liver concerns.',
-   clinNote:"Most common format for in-person KAP and retreat sessions. Mara's preferred route for retreat use. One approach: give 75% in one arm, wait, offer the remaining 25% in the other arm so the client can choose their own depth.",
+   clinNote:"One option for in-person KAP and retreat sessions. One approach: give 75% of the dose in one arm, wait, then offer the remaining 25% in the other arm so the client can choose their own depth. Vial concentrations:<br><b>10mg/ml</b> — 20ml vial (200mg total)<br><b>50mg/ml</b> — 10ml vial (500mg total)<br><b>100mg/ml</b> — 5ml vial (500mg total)<br>Use a 1ml syringe with 0.1ml markings for precision.",
    dirs:['Administered by a medical provider — you do not inject yourself','Injection goes into a large muscle — upper arm, thigh, or buttock','No solid food for 6 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','Have your nest ready beforehand — blanket, eyeshades, music','Lie down before onset — effects begin in 3–5 minutes','Cannot adjust the dose once injected — share any anxieties beforehand','Blood pressure before, at 20–30 minutes, and after','No driving for 24 hours — arrange transport home before your session']},
   {abbr:'SQ',name:'Subcutaneous (SQ)',color:'#7aaa8f',onset:'10–20 min',duration:'30–60 min',dur:45,bio:93,bioLabel:'~90–95%',bl:2,blLabel:'LOW',li:2,liLabel:'LOW',
    dose:'Weight-based. Low: 0.5 mg/kg (~25–50mg). Moderate: 0.5–1.0 mg/kg (~50–75mg). High: 1.0–1.5 mg/kg (~75–150mg). As low as 0.1 mg/kg shown effective for depression. Mean in KAP programs ~100mg.',
@@ -166,7 +166,7 @@ const ROUTES=[
    cons:['Injection still required','Slower onset than IM','Less clinical data than IV or IM','Possible local skin irritation','Requires training for self-administration'],
    blNote:'No first-pass metabolism. Metabolite profile similar to IM. Bladder risk tied to dose and frequency rather than route.',
    liNote:'No first-pass metabolism. Absorbed directly into systemic circulation. Hepatic load nearly identical to IM at equivalent doses.',
-   clinNote:'Growing use for treatment-resistant depression, especially maintenance. Bioavailability nearly matches IM but onset is gentler. The KADS trial demonstrated efficacy for treatment-resistant depression using SC racemic ketamine.',
+   clinNote:'Growing use for treatment-resistant depression, especially maintenance. Bioavailability nearly matches IM but onset is gentler and more gradual. The KADS trial demonstrated efficacy for treatment-resistant depression using SC racemic ketamine. Vial concentrations:<br><b>10mg/ml</b> — 20ml vial (200mg total)<br><b>50mg/ml</b> — 10ml vial (500mg total)<br><b>100mg/ml</b> — 5ml vial (500mg total)<br>Use a 1ml syringe with 0.1ml markings for precision.',
    dirs:['Injection goes just under the skin — abdomen, upper arm, or thigh — not into muscle','Needle is small, similar to insulin injection','No solid food for 6 hours before your session','No liquids 2 hours before — clear fluids are fine up until then','If self-administering: clean site with alcohol swab, pinch skin, insert needle at 45-degree angle','Inject slowly, withdraw, apply gentle pressure — do not rub the site','Have nest ready — effects begin in 10–20 minutes, gentler than IM','Blood pressure before and at 20–30 min','No driving for 24 hours — arrange transport home before your session']},
   {abbr:'IN',name:'Intranasal (IN)',color:'#c4a832',onset:'5–15 min',duration:'45–90 min',dur:67,bio:45,bioLabel:'25–50%',bl:3,blLabel:'MODERATE',li:3,liLabel:'MODERATE',
    dose:'Compounded racemic: 100–200mg via multiple sprays (~10mg each), alternating nostrils. Empirical dosing.',
@@ -242,12 +242,14 @@ function renderRoutes(){
         <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 0.5 mg/kg (~25–50mg avg adult)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 0.5–1.0 mg/kg (~50–75mg)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 1.0–1.5 mg/kg (~75–150mg)</div>
-        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg</div>`,
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg</div>
+        <div style="font-size:13px;color:#aaa;margin-top:4px"><b style="color:#555">Vials:</b> 10mg/ml / 20ml = 200mg total · 50mg/ml / 10ml = 500mg total · 100mg/ml / 5ml = 500mg total</div>`,
       'SQ':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Weight-based — 0.5 mg/kg starting</b></div>
         <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 0.5 mg/kg (~25–50mg avg adult)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 0.5–1.0 mg/kg (~50–75mg)</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">High:</b> 1.0–1.5 mg/kg (~75–150mg)</div>
-        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg · As low as 0.1 mg/kg effective for depression</div>`,
+        <div style="font-size:13px;color:#aaa;margin-top:2px">Mean in KAP programs ~100mg · As low as 0.1 mg/kg effective for depression</div>
+        <div style="font-size:13px;color:#aaa;margin-top:4px"><b style="color:#555">Vials:</b> 10mg/ml / 20ml = 200mg total · 50mg/ml / 10ml = 500mg total · 100mg/ml / 5ml = 500mg total</div>`,
       'RDT':`<div style="font-size:15px;margin-top:2px"><b style="color:#555">Empirical dosing</b></div>
         <div style="font-size:14px;color:#888;margin-top:3px"><b style="color:#555">Low:</b> 50–100mg</div>
         <div style="font-size:14px;color:#888;margin-top:2px"><b style="color:#555">Moderate:</b> 150–300mg</div>
